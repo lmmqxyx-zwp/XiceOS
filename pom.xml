@@ -38,6 +38,7 @@
         <junit.version>4.11</junit.version>
         <redis.version>2.9.0</redis.version>
         <beetl.version>2.9.3</beetl.version>
+        <beetl.sql.version>2.10.34</beetl.sql.version>
         <mybatis.plus.version>3.0.3</mybatis.plus.version>
         <spring.framework.version>4.3.7.RELEASE</spring.framework.version>
         <shiro.version>1.3.0</shiro.version>
@@ -111,11 +112,18 @@
                 <version>${junit.version}</version>
             </dependency>
 
-            <!-- 模板引擎 -->
+            <!-- beetlsql -->
             <dependency>
                 <groupId>com.ibeetl</groupId>
                 <artifactId>beetl</artifactId>
                 <version>${beetl.version}</version>
+            </dependency>
+
+            <!-- beetlSQL -->
+            <dependency>
+                <groupId>com.ibeetl</groupId>
+                <artifactId>beetlsql</artifactId>
+                <version>${beetl.sql.version}</version>
             </dependency>
 
             <!-- spring framework -->
