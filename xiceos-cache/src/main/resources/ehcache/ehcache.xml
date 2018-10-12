@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+	<diskStore path="java.io.tmpdir" />
+	
+	<defaultCache maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="300"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LFU">
+     </defaultCache>
+
+	<!--
+	不做数据同步时配置
+		<cache  name="apachecache"
+				maxElementsInMemory="100000"
+				eternal="true"
+				timeToIdleSeconds="300"
+				timeToLiveSeconds="600"
+				diskPersistent="false"
+				diskExpiryThreadIntervalSeconds="120"
+				memoryStoreEvictionPolicy="LFU">
+		</cache>
+	-->
+
+	<!--
+		通过terracotta方式同步缓存数据
+		ehcache分布式集群
+		terracotta服务器配置,默认端口为9510,多个服务器用,分隔
+
+		注意：
+			需要注意的是、该版本【apache-cache】的使用的terracotta版本和ehcache的版本需要运行在环境jdk1.6的JVM
+	-->
+	<!-- 生产用 pro -->
+	<cache  name="XiceOSCache"
+			maxElementsInMemory="100000"
+			eternal="true"
+			timeToIdleSeconds="300"
+			timeToLiveSeconds="600"
+			diskPersistent="false"
+			diskExpiryThreadIntervalSeconds="120"
+			memoryStoreEvictionPolicy="LFU">
+		<terracotta clustered="true"/>
+	</cache>
+	
+	<!-- 开发、测试用 dev、test -->
+	<cache name="sampleCache"
+		   maxElementsInMemory="100000"
+		   eternal="true"
+		   timeToIdleSeconds="300"
+		   timeToLiveSeconds="600"
+		   diskPersistent="false"
+		   diskExpiryThreadIntervalSeconds="120"
+		   memoryStoreEvictionPolicy="LFU">
+		<terracotta clustered="true"/>
+	</cache>
+	
+	<terracottaConfig url="zwp-xpserver:9510,192.168.0.243:9510" />
+</ehcache>

@@ -1,0 +1,93 @@
+package top.by.xiceos.util;
+
+/**
+ * <p>Title: SerializeUtil</p>
+ * <p>Description: 序列化与反序列化工具</p>
+ *
+ * @author zwp
+ * @date 2018/10/11 20:29
+ */
+
+import org.apache.shiro.codec.Base64;
+import top.by.xiceos.constant.XiceOSConstant;
+
+import java.io.*;
+
+public class SerializeUtil {
+    /**
+     * 反序列化
+     *
+     * @param string 待反序列化的字符串
+     * @return
+     */
+    public static Object deserialize(String string) {
+        ByteArrayInputStream bis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            if (XiceOSUtil.isEmpty(string)) {
+                return XiceOSConstant._NULL;
+            }
+
+            bis = new ByteArrayInputStream(Base64.decode(string));
+            ois = new ObjectInputStream(bis);
+
+            return ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (XiceOSUtil.isNotNull(ois)) {
+                    ois.close();
+                }
+
+                if (XiceOSUtil.isNotNull(bis)) {
+                    bis.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return XiceOSConstant._NULL;
+    }
+
+    /**
+     * 对象序列化
+     *
+     * @param obj 待序列化的对象
+     * @return
+     */
+    public static String serialize(Object obj) {
+        ByteArrayOutputStream bos = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            bos = new ByteArrayOutputStream();
+            oos = new ObjectOutputStream(bos);
+
+            oos.writeObject(obj);
+
+            return Base64.encodeToString(bos.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (XiceOSUtil.isNotNull(oos)) {
+                    oos.close();
+                }
+
+                if (XiceOSUtil.isNotNull(bos)) {
+                    bos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return (String) XiceOSConstant._NULL;
+    }
+}
+

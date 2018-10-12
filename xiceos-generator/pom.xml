@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>XiceOS</artifactId>
+        <groupId>top.by</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>代码生成器、开发平台组件</description>
+
+    <artifactId>xiceos-generator</artifactId>
+
+    <dependencies>
+        <!-- xiceos 核心 -->
+        <dependency>
+            <groupId>top.by</groupId>
+            <artifactId>xiceos-core</artifactId>
+        </dependency>
+
+        <!-- xiceos 缓存 -->
+        <dependency>
+            <groupId>top.by</groupId>
+            <artifactId>xiceos-cache</artifactId>
+        </dependency>
+
+        <!-- beetl模板引擎 -->
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl</artifactId>
+        </dependency>
+
+        <!-- mybatis-plus 代码生成 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
