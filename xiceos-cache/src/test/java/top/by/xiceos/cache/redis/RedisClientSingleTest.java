@@ -30,11 +30,53 @@ public class RedisClientSingleTest {
     }
 
     /**
+     * 设置超时时间
+     */
+    @Test
+    public void setTimeoutTest() {
+        try {
+            RedisClientSingle.getInstance().set("2b", "2b", 10000);
+
+            //Thread.sleep(5 * 1000L);
+
+            String s = (String) RedisClientSingle.getInstance().get("2b");
+            System.out.println(s);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取分布式锁
+     */
+    @Test
+    public void lockTest() {
+        String SEND_MESSAGE_LOCAK_CACHE_KEY = "SEND_MESSAGE_LOCAK_CACHE_KEY";
+
+        boolean lock = RedisClientSingle.getInstance().lock(SEND_MESSAGE_LOCAK_CACHE_KEY, System.currentTimeMillis());
+
+        System.out.println(lock);
+    }
+
+    /**
+     * 释放锁
+     */
+    @Test
+    public void unLockTest() {
+        String SEND_MESSAGE_LOCAK_CACHE_KEY = "SEND_MESSAGE_LOCAK_CACHE_KEY";
+
+        boolean lock = RedisClientSingle.getInstance().unLock(SEND_MESSAGE_LOCAK_CACHE_KEY);
+
+        System.out.println(lock);
+    }
+
+    /**
      * 获取值
      */
     @Test
     public void getTest() {
-        System.out.println((String) RedisClientSingle.getInstance().get("testCache", "b"));
+        System.out.println((String) RedisClientSingle.getInstance().get("testCache", "2b"));
     }
 
     /**
@@ -74,7 +116,7 @@ public class RedisClientSingleTest {
      */
     @Test
     public void setObjectTest() {
-        top.by.xiceos.entity.Test test = new top.by.xiceos.entity.Test();
+        top.by.xiceos.Test test = new top.by.xiceos.Test();
         test.setT3(3);
         test.setT9(new Date());
 
@@ -86,7 +128,7 @@ public class RedisClientSingleTest {
      */
     @Test
     public void getObjectTest() {
-        top.by.xiceos.entity.Test test = (top.by.xiceos.entity.Test) RedisClientSingle.getInstance().get("testCache", "Test");
+        top.by.xiceos.Test test = (top.by.xiceos.Test) RedisClientSingle.getInstance().get("testCache", "Test");
         System.out.println(test.getT3());
         System.out.println(test.getT9());
     }

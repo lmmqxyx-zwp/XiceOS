@@ -24,12 +24,6 @@
             <artifactId>xiceos-core</artifactId>
         </dependency>
 
-        <!-- 数据库 -->
-        <dependency>
-            <groupId>top.by</groupId>
-            <artifactId>xiceos-db</artifactId>
-        </dependency>
-
         <!-- redis -->
         <dependency>
             <groupId>redis.clients</groupId>
