@@ -1,4 +1,4 @@
-package top.by.xiceos.entity;
+package top.by.xiceos;
 
 import java.io.Serializable;
 import java.util.Date;

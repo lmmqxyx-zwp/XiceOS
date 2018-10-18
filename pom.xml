@@ -30,7 +30,7 @@
         <relativePath/>
     </parent>
 
-    <!-- 常量 -->
+    <!-- 版本常量 -->
     <properties>
         <!-- TODO 项目版本 # 20181009 V1.0 -->
         <xiceos.version>1.0-SNAPSHOT</xiceos.version>
@@ -42,6 +42,7 @@
         <mybatis.plus.version>3.0.3</mybatis.plus.version>
         <spring.framework.version>4.3.7.RELEASE</spring.framework.version>
         <shiro.version>1.3.0</shiro.version>
+        <durid.version>1.1.9</durid.version>
     </properties>
 
     <!-- dependencyManagement的含义：在父pom中定义的dependencies并没有真正的引入进来、只是定义了各个子项目所需要的依赖 -->
@@ -49,7 +50,7 @@
     <!-- 为以后维护升级提供了方便 -->
     <dependencyManagement>
         <dependencies>
-            <!-- xiceos -->
+            <!-- xiceos 模块 -->
             <dependency>
                 <groupId>top.by</groupId>
                 <artifactId>xiceos-core</artifactId>
@@ -105,7 +106,7 @@
                 <version>${shiro.version}</version>
             </dependency>
 
-            <!-- junit -->
+            <!-- junit 单元测试 -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -132,6 +133,14 @@
                 <artifactId>spring-core</artifactId>
                 <version>${spring.framework.version}</version>
             </dependency>
+
+            <!-- druid 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${durid.version}</version>
+            </dependency>
+
 
             <!-- spring boot start -->
             <dependency>
