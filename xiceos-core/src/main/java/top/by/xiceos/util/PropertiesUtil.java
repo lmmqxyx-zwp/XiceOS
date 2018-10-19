@@ -37,8 +37,7 @@ public final class PropertiesUtil {
     }
 
     /**
-     * 初始化配置文件路径信息
-     * 注册相关模块配置
+     * 初始化配置文件路径信息，注册相关模块配置
      */
     private void initDefaultXiceosConfigPath() {
 
@@ -91,7 +90,7 @@ public final class PropertiesUtil {
     /**
      * 根据模块名称获取对应的模块著配置文件内容
      *
-     * @param moduleName
+     * @param moduleName 模块名称
      * @return
      */
     @Deprecated
@@ -111,7 +110,7 @@ public final class PropertiesUtil {
     /**
      * 获取依赖包中的properties配置文件
      *
-     * @param moduleName
+     * @param moduleName 模块名称
      * @return
      */
     public Properties getDependencyXiceOSConfigByModuleName(String moduleName) {
@@ -119,15 +118,17 @@ public final class PropertiesUtil {
     }
 
     /**
-     * 加载properties配置文件
+     * 加载属性文件
      *
-     * @param path
+     * @param path 属性文件路径文件名
      * @return
      */
     public Properties loadProperties(String path) {
         Properties properties = (Properties) XiceOSConstant._NULL;
 
         try {
+            // 也可以使用下面这种当时获取一个流
+            // Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
             InputStream inputStream = this.getClass().getResourceAsStream(path);
 
             if (XiceOSUtil.isNotNull(inputStream)) {
@@ -142,24 +143,42 @@ public final class PropertiesUtil {
     }
 
     /**
-     * Properties文件内容转换成Map
+     * 转换集合
      *
-     * @param properties
+     * @param properties 属性文件
      * @return
      */
-    public Map<String, Object> propertiesToMap(Properties properties) {
-        Map<String, Object> map = new HashMap<String, Object>((Map) properties);
+    public Map<String, Object> toMap(Properties properties) {
+        return new HashMap<String, Object>((Map) properties);
+    }
 
-        // Set<Map.Entry<String, Object>> entryKeys = map.entrySet();
-        //
-        // for (Object o: entryKeys
-        //      ) {
-        //     Map.Entry<String, Object> entry = (Map.Entry<String, Object>) o;
-        //
-        //     System.out.println("key: " + entry.getKey() + " => val: " + entry.getValue());
-        // }
+    /**
+     * 根据键获取值 </br>
+     *
+     * @param properties 属性文件
+     * @param key        键
+     * @return 存在返回对应值；不存在返回空字符串
+     */
+    public String getString(Properties properties, String key) {
+        return this.getString(properties, key, XiceOSConstant._NULL_STRING);
+    }
 
-        return map;
+    /**
+     * 根据键获取值 </br>
+     *
+     * @param properties    属性文件
+     * @param key           键
+     * @param defaultValue  默认值
+     * @return 存在返回对应值；不存在返回defaultValue
+     */
+    public String getString(Properties properties, String key, String defaultValue) {
+        String value = defaultValue;
+
+        if (properties.containsKey(key)) {
+            value = properties.getProperty(key);
+        }
+
+        return value;
     }
 
 }

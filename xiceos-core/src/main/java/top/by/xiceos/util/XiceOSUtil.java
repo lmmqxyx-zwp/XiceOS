@@ -39,4 +39,14 @@ public class XiceOSUtil {
         return (o == null || "".equals(o));
     }
 
+    /**
+     * 判断一个字符串不为空
+     *
+     * @param o
+     * @return
+     */
+    public  static boolean isNotEmpty(Object o) {
+        return !isEmpty(o);
+    }
+
 }

@@ -36,18 +36,8 @@ public class SerializeUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (XiceOSUtil.isNotNull(ois)) {
-                    ois.close();
-                }
-
-                if (XiceOSUtil.isNotNull(bis)) {
-                    bis.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            close(ois);
+            close(bis);
         }
 
         return XiceOSConstant._NULL;
@@ -73,21 +63,41 @@ public class SerializeUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (XiceOSUtil.isNotNull(oos)) {
-                    oos.close();
-                }
-
-                if (XiceOSUtil.isNotNull(bos)) {
-                    bos.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            close(oos);
+            close(bos);
         }
 
         return (String) XiceOSConstant._NULL;
+    }
+
+    /**
+     * 关闭输入流
+     *
+     * @param i
+     */
+    private static void close(InputStream i) {
+        try {
+            if (XiceOSUtil.isNotNull(i)) {
+                i.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 关闭输出流
+     *
+     * @param o
+     */
+    private static void close(OutputStream o) {
+        try {
+            if (XiceOSUtil.isNotNull(o)) {
+                o.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

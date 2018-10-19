@@ -49,7 +49,7 @@ public class PropertiesUtilTest {
      */
     @Test
     public void propertiesToMapTest() {
-        Map<String, Object> map = PropertiesUtil.getInstance().propertiesToMap(PropertiesUtil.getInstance().getXiceOSConfigByModuleName("xiceos-core"));
+        Map<String, Object> map = PropertiesUtil.getInstance().toMap(PropertiesUtil.getInstance().getXiceOSConfigByModuleName("xiceos-core"));
 
         System.out.println(map);
     }
