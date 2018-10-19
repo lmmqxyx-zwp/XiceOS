@@ -32,21 +32,25 @@ public class XiceOSUtil {
     /**
      * 判断一个字符串为空
      *
-     * @param o
+     * @param s
      * @return
      */
-    public static boolean isEmpty(Object o) {
-        return (o == null || "".equals(o));
+    public static boolean isEmpty(String s) {
+        if (isNotNull(s)) {
+            s = s.trim();
+        }
+
+        return (s == null || "".equals(s));
     }
 
     /**
      * 判断一个字符串不为空
      *
-     * @param o
+     * @param s
      * @return
      */
-    public  static boolean isNotEmpty(Object o) {
-        return !isEmpty(o);
+    public  static boolean isNotEmpty(String s) {
+        return !isEmpty(s);
     }
 
 }
