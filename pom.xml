@@ -46,6 +46,8 @@
         <durid.version>1.1.9</durid.version>
         <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
         <apache.commons.collections4.version>4.1</apache.commons.collections4.version>
+        <apache.commons.dbutils.version>1.7</apache.commons.dbutils.version>
+        <mysql.version>5.1.47</mysql.version>
     </properties>
 
     <!-- dependencyManagement的含义：在父pom中定义的dependencies并没有真正的引入进来、只是定义了各个子项目所需要的依赖 -->
@@ -156,6 +158,19 @@
                 <version>${apache.commons.collections4.version}</version>
             </dependency>
 
+            <!-- Appache Commons 数据库操作工具 -->
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>${apache.commons.dbutils.version}</version>
+            </dependency>
+
+            <!-- MySQL 数据库驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
 
             <!-- spring boot start -->
             <dependency>
