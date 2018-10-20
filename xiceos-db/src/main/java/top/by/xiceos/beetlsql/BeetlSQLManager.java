@@ -27,7 +27,7 @@ public class BeetlSQLManager {
      */
     public static BeetlSQLManager getInstance() {
         if (manager == null) {
-            synchronized (PropertiesUtil.class) {
+            synchronized (BeetlSQLManager.class) {
                 if (manager == null) {
                     manager = new BeetlSQLManager();
                 }

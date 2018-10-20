@@ -51,7 +51,7 @@ public class XiceOSCacheFactory {
      */
     public static XiceOSCacheFactory getInstance() {
         if (factory == null) {
-            synchronized (PropertiesUtil.class) {
+            synchronized (XiceOSCacheFactory.class) {
                 if (factory == null) {
                     factory = new XiceOSCacheFactory();
                 }

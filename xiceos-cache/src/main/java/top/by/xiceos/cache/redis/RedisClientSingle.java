@@ -94,9 +94,9 @@ public class RedisClientSingle extends AbstractXiceOSCache {
      *
      * @return
      */
-    public synchronized static RedisClientSingle getInstance() {
+    public static RedisClientSingle getInstance() {
         if (single == null) {
-            synchronized (PropertiesUtil.class) {
+            synchronized (RedisClientSingle.class) {
                 if (single == null) {
                     single = new RedisClientSingle();
                 }
