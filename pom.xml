@@ -47,6 +47,7 @@
         <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
         <apache.commons.collections4.version>4.1</apache.commons.collections4.version>
         <apache.commons.dbutils.version>1.7</apache.commons.dbutils.version>
+        <apache.commons.dbcp2.version>2.5.0</apache.commons.dbcp2.version>
         <mysql.version>5.1.47</mysql.version>
     </properties>
 
@@ -158,12 +159,20 @@
                 <version>${apache.commons.collections4.version}</version>
             </dependency>
 
-            <!-- Appache Commons 数据库操作工具 -->
+            <!-- Apache Commons 数据库操作工具 -->
             <dependency>
                 <groupId>commons-dbutils</groupId>
                 <artifactId>commons-dbutils</artifactId>
                 <version>${apache.commons.dbutils.version}</version>
             </dependency>
+
+            <!-- Apache dbcp2 数据库连接池 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
+                <version>${apache.commons.dbcp2.version}</version>
+            </dependency>
+
 
             <!-- MySQL 数据库驱动 -->
             <dependency>

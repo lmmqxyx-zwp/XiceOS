@@ -1,5 +1,6 @@
 package top.by.xiceos.example.dbutils.helper;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -17,30 +18,39 @@ import java.util.Map;
  * <p>Title: DatabaseHelper</p>
  * <p>Description: 数据库操作助手类</p>
  *
- * 没有使用到数据库连接池、数据库连接数量是一定的、这样会浪费很多的系统资源
+ * 引入apache的dbcp2数据库连接池
+ *
+ * # fix 改造初始化方法
+ * # fix 改造数据库连接获取方法
+ * # fix 删除数据库关闭方法
  *
  * @author zwp
  * @date 2018/10/20 11:19
  */
-public class DatabaseHelper {
+public class DatabaseHelper2 {
 
     /* 表前缀 */
     private static final String TABLE_PREFIX = "t_";
 
-    private static final QueryRunner QUERY_RUNNER = new QueryRunner();
+    private static final BasicDataSource DATASOURCE;
+
+    private static final QueryRunner QUERY_RUNNER;
 
     /* 静态块加载数据库驱动 */
     static {
-        try {
-            Class.forName(Config.DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        QUERY_RUNNER = new QueryRunner();
+
+        DATASOURCE = new BasicDataSource();
+
+        DATASOURCE.setUrl(Config.URL);
+        DATASOURCE.setDriverClassName(Config.DRIVER);
+        DATASOURCE.setUsername(Config.USERNAME);
+        DATASOURCE.setPassword(Config.PASSWORD);
     }
 
     private static ThreadLocal<Connection> CONNECTION_HOLDER = new ThreadLocal<Connection>();
 
-    private DatabaseHelper() {
+    private DatabaseHelper2() {
 
     }
 
@@ -54,7 +64,7 @@ public class DatabaseHelper {
 
         if (connection == null) {
             try {
-                connection = DriverManager.getConnection(Config.URL, Config.USERNAME, Config.PASSWORD);
+                connection = DATASOURCE.getConnection();
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
@@ -63,22 +73,6 @@ public class DatabaseHelper {
         }
 
         return connection;
-    }
-
-    /**
-     * 关闭数据库连接
-     */
-    public static void closeConnection() {
-        Connection connection = CONNECTION_HOLDER.get();
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            CONNECTION_HOLDER.remove();
-        }
     }
 
     /**
@@ -98,8 +92,6 @@ public class DatabaseHelper {
             entityList = QUERY_RUNNER.query(connection, sql, new BeanListHandler<T>(entityClass), params);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
         }
 
         return entityList;
@@ -122,8 +114,6 @@ public class DatabaseHelper {
             entity = QUERY_RUNNER.query(connection, sql, new BeanHandler<T>(entityClass), params);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
         }
 
         return entity;
@@ -144,8 +134,6 @@ public class DatabaseHelper {
             result = QUERY_RUNNER.query(connection, sql, new MapListHandler(), params);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
         }
 
         return result;
@@ -166,8 +154,6 @@ public class DatabaseHelper {
             rows = QUERY_RUNNER.update(connection, sql, params);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeConnection();
         }
 
         return rows;
