@@ -21,6 +21,7 @@
         <module>xiceos-admin</module>
         <module>xiceos-generator</module>
         <module>xiceos-example</module>
+        <module>xiceos-blog</module>
     </modules>
 
     <!-- 主框架使用spring boot -->
