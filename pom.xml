@@ -41,7 +41,7 @@
         <beetl.version>2.9.3</beetl.version>
         <beetl.sql.version>2.10.34</beetl.sql.version>
         <mybatis.plus.version>3.0.3</mybatis.plus.version>
-        <spring.framework.version>4.3.7.RELEASE</spring.framework.version>
+        <spring.framework.version>5.1.3.RELEASE</spring.framework.version>
         <shiro.version>1.3.0</shiro.version>
         <durid.version>1.1.9</durid.version>
         <apache.commons.lang3.version>3.7</apache.commons.lang3.version>

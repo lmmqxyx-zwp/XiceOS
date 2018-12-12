@@ -1,7 +1,12 @@
 package top.by.xiceos.util;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class AnalysisMySQLInformationUtilTest {
+
+    @Test
+    public void test() {
+        System.out.println("logback");
+    }
 
 }
