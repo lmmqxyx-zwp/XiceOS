@@ -26,6 +26,11 @@ public class IndexController {
     @RequestMapping(path = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model, HttpServletRequest request, HttpServletResponse response) {
         logger.info("待多语言整改主页");
+        try {
+            System.out.println(1 / 0);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
         return "index";
     }
 
