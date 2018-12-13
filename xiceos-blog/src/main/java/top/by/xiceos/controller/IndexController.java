@@ -23,15 +23,15 @@ public class IndexController {
 
     Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-    @RequestMapping(path = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(path = {"/", "test"}, method = RequestMethod.GET)
     public String index(Model model, HttpServletRequest request, HttpServletResponse response) {
         logger.info("待多语言整改主页");
-        try {
-            System.out.println(1 / 0);
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-        }
         return "index";
+    }
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String home(Model model, HttpServletRequest request, HttpServletResponse response) {
+        return "home/index";
     }
 
 }

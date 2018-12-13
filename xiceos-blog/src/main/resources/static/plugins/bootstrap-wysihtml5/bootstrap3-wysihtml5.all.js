@@ -776,7 +776,7 @@ var wysihtml5 = {
             } else {
                 root = getCommonAncestor(nodeA, nodeB);
                 if (!root) {
-                    throw new Error("comparePoints error: nodes have no common ancestor");
+                    throw new Error("comparePoints error: nodes have no commons ancestor");
                 }
 
                 // Case 4: containers are siblings or descendants of siblings
@@ -2453,7 +2453,7 @@ var wysihtml5 = {
             var range = document.selection.createRange();
             alert(range.parentElement().id); // Should alert "ul" but alerts "b"
 
-            This method returns the common ancestor node of the following:
+            This method returns the commons ancestor node of the following:
             - the parentElement() of the textRange
             - the parentElement() of the textRange after calling collapse(true)
             - the parentElement() of the textRange after calling collapse(false)
@@ -8342,7 +8342,7 @@ wysihtml5.dom.getPastedHtmlWithDiv = function (composer, f) {
     cleanerDiv.parentNode.removeChild(cleanerDiv);
   }, 0);
 };;/**
- * Fix most common html formatting misbehaviors of browsers implementation when inserting
+ * Fix most commons html formatting misbehaviors of browsers implementation when inserting
  * content via copy & paste contentEditable
  *
  * @author Christopher Blum
@@ -8737,7 +8737,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
           end_depth = getDepth(common, range.endContainer);
 
       while(!range.canSurroundContents()) {
-        // In the following branches, we cannot just decrement the depth variables because the setStartBefore/setEndAfter may move the start or end of the range more than one level relative to ``common``. So we need to recompute the depth.
+        // In the following branches, we cannot just decrement the depth variables because the setStartBefore/setEndAfter may move the start or end of the range more than one level relative to ``commons``. So we need to recompute the depth.
         if (start_depth > end_depth) {
             range.setStartBefore(range.startContainer);
             start_depth = getDepth(common, range.startContainer);

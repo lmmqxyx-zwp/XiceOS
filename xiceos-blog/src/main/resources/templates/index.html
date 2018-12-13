@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-index
-</body>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="home/top::top('xBlog | 主页')"></head>
+    <body>
+    index主页${request3}
+    </body>
 </html>

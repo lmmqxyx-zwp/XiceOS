@@ -16,4 +16,5 @@ public class XiceosBlogApplication {
     public static void main(String[] args) {
         SpringApplication.run(XiceosBlogApplication.class, args);
     }
+
 }
