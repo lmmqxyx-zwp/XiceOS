@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="cn" xmlns:th="http://www.thymeleaf.org">
-    <head th:include="home/top::top('xBlog | 主页')"></head>
-    <body>
-    index主页${request3}
+    <head th:include="home/commons/top::top('xBlog | 测试页')"></head>
+    <style>
+        hr {
+            border: solid 1px cyan;
+        }
+        span {
+            font-size: small;
+            color: red;
+            padding-left: 20px;
+        }
+        p {
+            font-weight: bold;
+        }
+    </style>
+    <body style="padding: 1% 20%;">
+    <p>注：该页为x-blog功能测试页、无实际意义。</p><span>(注：字体粗细font-weight从100到900)</span>
+    <hr />
+    <p>01.国际化多语言转换</p>
+    <div><a href="?lang=en_US"> English</a> | <a href="?lang=zh_CN"> 中文</a> | <a href="?lang=ja_JP"> 日文</a></div>
+    键：xblog.admin.login.username <b>=></b> 值：[[#{xblog.admin.login.username}]]：<b th:text="#{xblog.admin.login.username}"></b><br />
+    <span>注：取得方法有两种</span>
+    <hr />
+
     </body>
 </html>

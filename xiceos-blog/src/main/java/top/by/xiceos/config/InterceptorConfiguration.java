@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+// import top.by.xiceos.interceptor.ErrorPageInterceptor;
 import top.by.xiceos.interceptor.LogInterceptor;
 import top.by.xiceos.interceptor.LoginInterceptor;
 
@@ -26,18 +27,33 @@ public class InterceptorConfiguration {
     @Autowired
     private LogInterceptor logInterceptor;
 
+    /** 登录拦截器 */
     @Autowired
     private LoginInterceptor loginInterceptor;
+
+    // /** 错误页面拦截器 */
+    // @Autowired
+    // private ErrorPageInterceptor errorPageInterceptor;
 
     @Bean
     public WebMvcConfigurer addLogInterceptor() {
         return new WebMvcConfigurer() {
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
-                registry.addInterceptor(logInterceptor).addPathPatterns("/**").order(1);
+                registry.addInterceptor(logInterceptor).addPathPatterns("/**").order(1).excludePathPatterns("/static/**");
             }
         };
     }
+
+    // @Bean
+    // public WebMvcConfigurer addErrorPageInterceptor() {
+    //     return new WebMvcConfigurer() {
+    //         @Override
+    //         public void addInterceptors(InterceptorRegistry registry) {
+    //             registry.addInterceptor(errorPageInterceptor).addPathPatterns("/**").order(2);
+    //         }
+    //     };
+    // }
 
     @Bean
     public WebMvcConfigurer addLoginInterceptor() {

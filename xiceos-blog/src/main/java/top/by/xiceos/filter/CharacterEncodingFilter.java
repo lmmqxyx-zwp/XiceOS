@@ -24,7 +24,7 @@ public class CharacterEncodingFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        logger.info("使用xblog字符编码过滤器");
+        // logger.info("字符编码过滤器X-BLOG支持");
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");

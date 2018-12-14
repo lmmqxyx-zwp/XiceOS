@@ -2,6 +2,7 @@ package top.by.xiceos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * <p>Title: XiceosBlogApplication</p>
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author zwp
  * @date 2018/12/12 10:20
  */
+@ImportResource("classpath:config/application-bean.xml")
 @SpringBootApplication
 public class XiceosBlogApplication {
 
