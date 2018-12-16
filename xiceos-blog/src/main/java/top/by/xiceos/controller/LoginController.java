@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import top.by.xiceos.form.LoginUser;
+import top.by.xiceos.vo.Users;
 
 /**
  * <p>Title: LoginController</p>
@@ -16,8 +16,8 @@ import top.by.xiceos.form.LoginUser;
 @Controller
 public class LoginController {
 
-    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute LoginUser loginUser) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute Users loginUser) {
 
         return "admin/index";
     }

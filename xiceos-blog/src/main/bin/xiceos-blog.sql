@@ -130,7 +130,7 @@ create table `blog_relationships` (
 drop table if exists `blog_users`;
 create table `blog_users` (
   `uid` int(10) unsigned not null auto_increment comment '主键',
-  `name` varchar(32) default null comment '用户名称',
+  `username` varchar(32) default null comment '用户名称',
   `password` varchar(64) default null comment '用户密码',
   `mail` varchar(200) default null comment '用户邮箱',
   `url` varchar(200) default null comment '用户主页',
@@ -140,7 +140,8 @@ create table `blog_users` (
   `logged` int(10) unsigned default '0' comment '上次登录最后活跃时间',
   `group` varchar(16) default 'visitor' comment '用户组',
   `authcode` varchar(64) default null comment '用户登录验证码',
+  `remember` int(1) default null comment '记住登录状态',
   primary key (`uid`),
-  unique key `name` (`name`),
+  unique key `username` (`username`),
   unique key `mail` (`mail`)
 ) engine=myisam auto_increment=3 default charset=utf8;

@@ -13,7 +13,7 @@ public class Users implements Serializable {
     //主键
     private Long uid;
     //用户名称
-    private String name;
+    private String username;
     //用户密码
     private String password;
     //用户邮箱
@@ -32,6 +32,8 @@ public class Users implements Serializable {
     private String group;
     //用户登录验证码
     private String authcode;
+    //记住登录状态
+    private Integer remember;
 
 
     public Long getUid() {
@@ -42,12 +44,12 @@ public class Users implements Serializable {
         this.uid = uid;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -122,4 +124,11 @@ public class Users implements Serializable {
         this.authcode = authcode;
     }
 
+    public Integer getRemember() {
+        return remember;
+    }
+
+    public void setRemember(Integer remember) {
+        this.remember = remember;
+    }
 }

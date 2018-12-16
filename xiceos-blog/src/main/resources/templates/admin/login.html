@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title th:text="#{xblog.admin.login.title}"></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -60,28 +60,28 @@
                         </label>
                     </div>
                 </div>
-                <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat" th:text="#{xblog.admin.login.sign}"></button>
+                    <button id="submit" type="button" class="btn btn-primary btn-block btn-flat" th:text="#{xblog.admin.login.sign}"></button>
                 </div>
-                <!-- /.col -->
             </div>
         </form>
 
         <div class="social-auth-links text-center">
+            <div>
+                <a href="?lang=zh_CN"> 中文</a> |
+                <a href="?lang=en_US"> English</a> |
+                <a href="?lang=ja_JP"> 日文</a>
+            </div>
             <p>- [[#{xblog.admin.login.or}]] -</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
         </div>
-        <!-- /.social-auth-links -->
 
         <a href="#" th:text="#{xblog.admin.login.forgot}">I forgot my password</a><br>
         <a href="#" class="text-center" th:text="#{xblog.admin.login.register}"></a>
 
     </div>
-    <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->
 <!-- 全局xBlog js -->
 <script th:src="@{/static/js/xBlog.js}"></script>
 <!-- jQuery 3 -->
@@ -97,6 +97,11 @@
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' /* optional */
         });
+
+        $('#submit').on('click', function (e) {
+            alert(1);
+            $.ajax()
+        })
     });
 </script>
 </body>
