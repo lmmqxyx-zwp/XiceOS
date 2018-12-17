@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import top.by.xiceos.dao.UsersDao;
 import top.by.xiceos.service.UsersService;
@@ -17,9 +18,22 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     private UsersDao usersDao;
 
+    /**
+     * 注意事务需要添加在实现类上面，@Service(value = "usersService")，在接口上面添加事务注解无效
+     *
+     * @param users
+     * @return
+     */
+    @Transactional
     @Override
     public int addUsers(Users users) {
-        return usersDao.insert(users);
+
+        int count = usersDao.insert(users);
+
+        // 测试事务不提交
+        System.out.println(10/0);
+
+        return count;
     }
 
     /**

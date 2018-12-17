@@ -36,7 +36,6 @@ public class IndexController {
     @Autowired
     private UsersService usersService;
 
-    @Token(remove = true)
     @RequestMapping(path = {"/", "test"}, method = RequestMethod.GET)
     public String index(Model model, HttpServletRequest request, HttpServletResponse response) {
         logger.info("待多语言整改主页");
@@ -49,6 +48,21 @@ public class IndexController {
         //logger.info(request.getSession().getAttribute("token").toString());
         //System.out.println(10/0);
         return "index";
+    }
+
+    /**
+     * 测试防止表单重复提交
+     *
+     * @param users
+     * @param request
+     * @param response
+     * @return
+     */
+    @Token(remove = true)
+    @ResponseBody
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    public int insert(@ModelAttribute Users users, HttpServletRequest request, HttpServletResponse response) {
+        return usersService.addUsers(users);
     }
 
     /**

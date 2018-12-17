@@ -3,8 +3,6 @@ package top.by.xiceos.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -26,8 +24,6 @@ import java.util.UUID;
 @Component
 public class TokenContract {
 
-    private Logger logger = LoggerFactory.getLogger(TokenContract.class);
-
     /* token 键 */
     public static final String TOKEN_KEY = "token";
 
@@ -35,9 +31,11 @@ public class TokenContract {
     private MessageSource messageSource;
 
     @Before("within(@org.springframework.stereotype.Controller *) && @annotation(token)")
-    public void token(final JoinPoint joinPoint, Token token) {
+    public void token(final JoinPoint joinPoint, Token token) throws Exception {
         if (token != null) {
             // 获取joinPoint的全部参数
+            // 切入点的参数，即controller的方法的形参
+            // 如果是只有接受对象的参数的方法，那么没有request时将会取不到session的值 => 空指针
             Object[] args = joinPoint.getArgs();
 
             HttpServletRequest request = null;
@@ -71,7 +69,7 @@ public class TokenContract {
                         throw new FormRepeatException(messageSource.getMessage("xblog.aop.log.token.message", new Object[]{}, LocaleContextHolder.getLocale()));
                     }
                 } catch (FormRepeatException e) {
-                    logger.error(e.getMessage(), e);
+                    throw new Exception(e);
                 }
 
                 if (request.getSession(false) != null) {
