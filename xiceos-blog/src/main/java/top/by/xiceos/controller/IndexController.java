@@ -47,7 +47,7 @@ public class IndexController {
         // logger.info("插入数据：" + count);
         PageInfo<Users> users = usersService.findAllUsers(3, 4);
         //logger.info(request.getSession().getAttribute("token").toString());
-        System.out.println(10/0);
+        //System.out.println(10/0);
         return "index";
     }
 

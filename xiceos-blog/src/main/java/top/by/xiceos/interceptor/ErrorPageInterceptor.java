@@ -10,7 +10,7 @@
 //
 // /**
 //  * <p>Title: ErrorPageInterceptor</p>
-//  * <p>Description: 错误页面拦截器</p>
+//  * <p>Description: 错误页面拦截器(废弃)</p>
 //  *
 //  * @author zwp
 //  * @date 2018/12/14 20:34

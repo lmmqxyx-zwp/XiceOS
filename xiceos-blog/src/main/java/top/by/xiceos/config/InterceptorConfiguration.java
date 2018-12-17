@@ -31,7 +31,7 @@ public class InterceptorConfiguration {
     @Autowired
     private LoginInterceptor loginInterceptor;
 
-    // /** 错误页面拦截器 */
+    // /** 错误页面拦截器(废弃) */
     // @Autowired
     // private ErrorPageInterceptor errorPageInterceptor;
 

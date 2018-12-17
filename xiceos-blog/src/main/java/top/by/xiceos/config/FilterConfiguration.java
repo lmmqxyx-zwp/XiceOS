@@ -40,6 +40,11 @@ public class FilterConfiguration {
         return registration;
     }
 
+    /**
+     * druid过滤器
+     * 
+     * @return
+     */
     @Bean
     public FilterRegistrationBean addDruidFilter() {
         FilterRegistrationBean<DruidFilter> registration = new FilterRegistrationBean<DruidFilter>();

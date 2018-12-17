@@ -9,9 +9,16 @@ package top.by.xiceos.api;
  */
 public class ApiResponseData {
 
+    /* 状态码 */
     private int code;
+
+    /* 消息 */
     private String message;
+
+    /* 数据 */
     private Object data;
+
+    /* 更多 */
     private boolean more;
 
     public ApiResponseData(int code, String message, Object data) {
@@ -69,6 +76,13 @@ public class ApiResponseData {
         return new ApiResponseData(status.getCode(), status.getStandardMessage(), null);
     }
 
+    /**
+     * <p>Title: ApiResponseData</p>
+     * <p>Description: 状态</p>
+     *
+     * @author zwp
+     * @date 2018/12/17 19:33
+     */
     public enum Status {
         SUCCESS(200, "OK"),
         BAD_REQUEST(400, "Bad Request"),

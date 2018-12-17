@@ -8,7 +8,7 @@
 //
 // /**
 //  * <p>Title: ErrorConfiguration</p>
-//  * <p>Description: 注册错误页面，需要对应一个ErrorController</p>
+//  * <p>Description: 注册错误页面，需要对应一个ErrorController，在Controller中写逻辑，覆盖掉spring的ErrorController</p>
 //  *
 //  * @author zwp
 //  * @date 2018/12/17 15:41
