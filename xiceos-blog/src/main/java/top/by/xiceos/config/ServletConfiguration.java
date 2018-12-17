@@ -8,6 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <p>Title: ServletConfiguration</p>
+ * <p>Description: druid配置</p>
+ *
+ * @author zwp
+ * @date 2018/12/17 15:42
+ */
 @Configuration
 public class ServletConfiguration {
 

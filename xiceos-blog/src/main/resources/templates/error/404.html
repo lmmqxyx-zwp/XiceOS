@@ -36,12 +36,9 @@
             <div class="error-page">
                 <h2 class="headline text-yellow"> 404</h2>
                 <div class="error-content">
-                    <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
+                    <h3><i class="fa fa-warning text-yellow"></i> [[#{xblog.404.warning.message}]]</h3>
 
-                    <p>
-                        We could not find the page you were looking for.
-                        Meanwhile, you may <a href="#">return to dashboard</a> or try using the search form.
-                    </p>
+                    <p>[[#{xblog.404.info.message}]]</p>
 
                     <form class="search-form">
                         <div class="input-group">
@@ -53,6 +50,17 @@
                             </div>
                         </div>
                     </form>
+
+                    <div class="callout callout-danger" style="margin-top: 7px;">
+                        <h4>Warning!</h4>
+
+                        <p>[[#{xblog.error.page.commom.timestamp}]]<span th:text="${attr.timestamp}"></span></p>
+                        <p>[[#{ xblog.error.page.commom.status}]]<span th:text="${attr.status}"></span></p>
+                        <p>[[#{xblog.error.page.commom.error}]]<span th:text="${attr.error}"></span></p>
+                        <p>[[#{xblog.error.page.commom.message}]]<span th:text="${attr.message}"></span></p>
+                        <p>[[#{xblog.error.page.commom.path}]]<span th:text="${attr.path}"></span></p>
+                    </div>
+
                 </div>
             </div>
         </section>

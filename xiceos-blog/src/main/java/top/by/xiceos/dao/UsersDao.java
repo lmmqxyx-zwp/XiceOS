@@ -7,6 +7,13 @@ import top.by.xiceos.vo.Users;
 
 import java.util.List;
 
+/**
+ * <p>Title: UsersDao</p>
+ * <p>Description: 用户操作</p>
+ *
+ * @author zwp
+ * @date 2018/12/17 15:42
+ */
 @Component
 @Mapper
 public interface UsersDao {

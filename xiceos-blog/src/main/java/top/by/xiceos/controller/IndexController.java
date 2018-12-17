@@ -9,6 +9,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import top.by.xiceos.aop.Token;
 import top.by.xiceos.service.UsersService;
 import top.by.xiceos.vo.Users;
 
@@ -35,6 +36,7 @@ public class IndexController {
     @Autowired
     private UsersService usersService;
 
+    @Token(remove = true)
     @RequestMapping(path = {"/", "test"}, method = RequestMethod.GET)
     public String index(Model model, HttpServletRequest request, HttpServletResponse response) {
         logger.info("待多语言整改主页");
@@ -44,6 +46,8 @@ public class IndexController {
         // int count = usersService.addUsers(users);
         // logger.info("插入数据：" + count);
         PageInfo<Users> users = usersService.findAllUsers(3, 4);
+        //logger.info(request.getSession().getAttribute("token").toString());
+        System.out.println(10/0);
         return "index";
     }
 
