@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.by.xiceos.dao.FieldsDao">
+    <sql id="table_name">
+        blog_fields
+    </sql>
+
+    <sql id="table_column">
+        `cid`, `name`, `type`, `str_value`, `int_value`, `float_value`
+    </sql>
+
+    <!-- 数据插入 -->
+    <insert id="insert" parameterType="top.by.xiceos.vo.Fields">
+        INSERT INTO
+        <include refid="table_name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cid != null">
+                `cid`,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="str_value != null">
+                `str_value`,
+            </if>
+            <if test="int_value != null">
+                `int_value`,
+            </if>
+            <if test="float_value != null">
+                `float_value`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="cid != null">
+                #{cid},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="str_value != null">
+                #{str_value},
+            </if>
+            <if test="int_value != null">
+                #{int_value},
+            </if>
+            <if test="float_value != null">
+                #{float_value},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 数据删除 -->
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM
+        <include refid="table_name"/>
+        WHERE
+        cid = #{cid}
+    </delete>
+
+    <!-- 数据修改 -->
+    <update id="update" parameterType="top.by.xiceos.vo.Fields">
+        UPDATE            <include refid="table_name"/>
+        <trim prefix="set" suffixOverrides=",">
+              <if test="cid != null">
+                `cid` = #{cid},
+              </if>
+              <if test="name != null">
+                `name` = #{name},
+              </if>
+              <if test="type != null">
+                `type` = #{type},
+              </if>
+              <if test="str_value != null">
+                `str_value` = #{str_value},
+              </if>
+              <if test="int_value != null">
+                `int_value` = #{int_value},
+              </if>
+              <if test="float_value != null">
+                `float_value` = #{float_value},
+              </if>
+        </trim>
+        WHERE
+            cid = #{cid}
+    </update>
+
+    <!-- 数据查询 单条数据 -->
+    <select id="findById" parameterType="java.lang.Long" resultType="top.by.xiceos.vo.Fields">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+            cid = #{cid}
+    </select>
+
+    <!-- 数据查询 多条数据 -->
+    <select id="findByIds" resultType="top.by.xiceos.vo.Fields">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+        cid IN
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 查询数据 全部 -->
+    <select id="findAll" resultType="top.by.xiceos.vo.Fields">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+    </select>
+
+</mapper>

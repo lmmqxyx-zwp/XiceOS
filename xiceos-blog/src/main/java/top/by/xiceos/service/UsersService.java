@@ -1,6 +1,7 @@
 package top.by.xiceos.service;
 
 import com.github.pagehelper.PageInfo;
+import top.by.xiceos.api.ApiResponseData;
 import top.by.xiceos.vo.Users;
 
 /**
@@ -12,9 +13,17 @@ import top.by.xiceos.vo.Users;
  */
 public interface UsersService {
 
-    int addUsers(Users users);
+    ApiResponseData insert(Users users);
 
-    PageInfo<Users> findAllUsers(int pageNum, int pageSize);
+    ApiResponseData delete(Long id);
 
-    Users findUsers(Users users);
+    ApiResponseData update(Users users);
+
+    ApiResponseData findById(Long id);
+
+    ApiResponseData findByIds(Long[] ids);
+
+    ApiResponseData findAll();
+
+    ApiResponseData getPages(int pageNum, int pageSize);
 }

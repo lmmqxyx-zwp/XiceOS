@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.by.xiceos.dao.CommentsDao">
+    <sql id="table_name">
+        blog_comments
+    </sql>
+
+    <sql id="table_column">
+        `coid`, `cid`, `created`, `author`, `authorid`, `ownerid`, `mail`, `url`, `ip`, `agent`, `text`, `type`, `status`, `parent`
+    </sql>
+
+    <!-- 数据插入 -->
+    <insert id="insert" parameterType="top.by.xiceos.vo.Comments">
+        INSERT INTO
+        <include refid="table_name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coid != null">
+                `coid`,
+            </if>
+            <if test="cid != null">
+                `cid`,
+            </if>
+            <if test="created != null">
+                `created`,
+            </if>
+            <if test="author != null">
+                `author`,
+            </if>
+            <if test="authorid != null">
+                `authorid`,
+            </if>
+            <if test="ownerid != null">
+                `ownerid`,
+            </if>
+            <if test="mail != null">
+                `mail`,
+            </if>
+            <if test="url != null">
+                `url`,
+            </if>
+            <if test="ip != null">
+                `ip`,
+            </if>
+            <if test="agent != null">
+                `agent`,
+            </if>
+            <if test="text != null">
+                `text`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="parent != null">
+                `parent`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="coid != null">
+                #{coid},
+            </if>
+            <if test="cid != null">
+                #{cid},
+            </if>
+            <if test="created != null">
+                #{created},
+            </if>
+            <if test="author != null">
+                #{author},
+            </if>
+            <if test="authorid != null">
+                #{authorid},
+            </if>
+            <if test="ownerid != null">
+                #{ownerid},
+            </if>
+            <if test="mail != null">
+                #{mail},
+            </if>
+            <if test="url != null">
+                #{url},
+            </if>
+            <if test="ip != null">
+                #{ip},
+            </if>
+            <if test="agent != null">
+                #{agent},
+            </if>
+            <if test="text != null">
+                #{text},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="parent != null">
+                #{parent},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 数据删除 -->
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM
+        <include refid="table_name"/>
+        WHERE
+        coid = #{coid}
+    </delete>
+
+    <!-- 数据修改 -->
+    <update id="update" parameterType="top.by.xiceos.vo.Comments">
+        UPDATE            <include refid="table_name"/>
+        <trim prefix="set" suffixOverrides=",">
+              <if test="coid != null">
+                `coid` = #{coid},
+              </if>
+              <if test="cid != null">
+                `cid` = #{cid},
+              </if>
+              <if test="created != null">
+                `created` = #{created},
+              </if>
+              <if test="author != null">
+                `author` = #{author},
+              </if>
+              <if test="authorid != null">
+                `authorid` = #{authorid},
+              </if>
+              <if test="ownerid != null">
+                `ownerid` = #{ownerid},
+              </if>
+              <if test="mail != null">
+                `mail` = #{mail},
+              </if>
+              <if test="url != null">
+                `url` = #{url},
+              </if>
+              <if test="ip != null">
+                `ip` = #{ip},
+              </if>
+              <if test="agent != null">
+                `agent` = #{agent},
+              </if>
+              <if test="text != null">
+                `text` = #{text},
+              </if>
+              <if test="type != null">
+                `type` = #{type},
+              </if>
+              <if test="status != null">
+                `status` = #{status},
+              </if>
+              <if test="parent != null">
+                `parent` = #{parent},
+              </if>
+        </trim>
+        WHERE
+            coid = #{coid}
+    </update>
+
+    <!-- 数据查询 单条数据 -->
+    <select id="findById" parameterType="java.lang.Long" resultType="top.by.xiceos.vo.Comments">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+            coid = #{coid}
+    </select>
+
+    <!-- 数据查询 多条数据 -->
+    <select id="findByIds" resultType="top.by.xiceos.vo.Comments">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+        coid IN
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 查询数据 全部 -->
+    <select id="findAll" resultType="top.by.xiceos.vo.Comments">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+    </select>
+
+</mapper>

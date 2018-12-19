@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.by.xiceos.dao.RelationshipsDao">
+    <sql id="table_name">
+        blog_relationships
+    </sql>
+
+    <sql id="table_column">
+        `cid`, `mid`
+    </sql>
+
+    <!-- 数据插入 -->
+    <insert id="insert" parameterType="top.by.xiceos.vo.Relationships">
+        INSERT INTO
+        <include refid="table_name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cid != null">
+                `cid`,
+            </if>
+            <if test="mid != null">
+                `mid`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="cid != null">
+                #{cid},
+            </if>
+            <if test="mid != null">
+                #{mid},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 数据删除 -->
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM
+        <include refid="table_name"/>
+        WHERE
+        cid = #{cid}
+    </delete>
+
+    <!-- 数据修改 -->
+    <update id="update" parameterType="top.by.xiceos.vo.Relationships">
+        UPDATE            <include refid="table_name"/>
+        <trim prefix="set" suffixOverrides=",">
+              <if test="cid != null">
+                `cid` = #{cid},
+              </if>
+              <if test="mid != null">
+                `mid` = #{mid},
+              </if>
+        </trim>
+        WHERE
+            cid = #{cid}
+    </update>
+
+    <!-- 数据查询 单条数据 -->
+    <select id="findById" parameterType="java.lang.Long" resultType="top.by.xiceos.vo.Relationships">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+            cid = #{cid}
+    </select>
+
+    <!-- 数据查询 多条数据 -->
+    <select id="findByIds" resultType="top.by.xiceos.vo.Relationships">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+        cid IN
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 查询数据 全部 -->
+    <select id="findAll" resultType="top.by.xiceos.vo.Relationships">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+    </select>
+
+</mapper>

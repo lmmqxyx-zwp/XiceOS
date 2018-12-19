@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.by.xiceos.dao.OptionsDao">
+    <sql id="table_name">
+        blog_options
+    </sql>
+
+    <sql id="table_column">
+        `name`, `user`, `value`
+    </sql>
+
+    <!-- 数据插入 -->
+    <insert id="insert" parameterType="top.by.xiceos.vo.Options">
+        INSERT INTO
+        <include refid="table_name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="user != null">
+                `user`,
+            </if>
+            <if test="value != null">
+                `value`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="user != null">
+                #{user},
+            </if>
+            <if test="value != null">
+                #{value},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 数据删除 -->
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM
+        <include refid="table_name"/>
+        WHERE
+        name = #{name}
+    </delete>
+
+    <!-- 数据修改 -->
+    <update id="update" parameterType="top.by.xiceos.vo.Options">
+        UPDATE            <include refid="table_name"/>
+        <trim prefix="set" suffixOverrides=",">
+              <if test="name != null">
+                `name` = #{name},
+              </if>
+              <if test="user != null">
+                `user` = #{user},
+              </if>
+              <if test="value != null">
+                `value` = #{value},
+              </if>
+        </trim>
+        WHERE
+            name = #{name}
+    </update>
+
+    <!-- 数据查询 单条数据 -->
+    <select id="findById" parameterType="java.lang.Long" resultType="top.by.xiceos.vo.Options">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+            name = #{name}
+    </select>
+
+    <!-- 数据查询 多条数据 -->
+    <select id="findByIds" resultType="top.by.xiceos.vo.Options">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+        name IN
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 查询数据 全部 -->
+    <select id="findAll" resultType="top.by.xiceos.vo.Options">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+    </select>
+
+</mapper>

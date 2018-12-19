@@ -16,11 +16,9 @@ import java.util.List;
  */
 @Component
 @Mapper
-public interface UsersDao {
+public interface UsersDao extends BaseDao<Users> {
 
     int insert(Users users);
-
-    List<Users> selectUsers();
 
     @Select("select * from blog_users where uid = #{uid}")
     Users selectUsers2(Users users);

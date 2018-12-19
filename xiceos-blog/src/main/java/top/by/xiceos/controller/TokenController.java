@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 public class TokenController {
 
     @Token(setToken = true)
-    @RequestMapping(value = "/getToken", method = RequestMethod.GET)
+    @RequestMapping(value = "/getToken", method = RequestMethod.POST)
     @ResponseBody
     public String getToken(HttpServletRequest request) {
         return (String) request.getSession().getAttribute(TokenContract.TOKEN_KEY);
