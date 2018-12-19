@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * <p>Title: AnalysisMySQLInformationUtil</p>
- * <p>Description: 解析MySQL数据库信息工具</p>
+ * <p>Description: 解析MySQL数据库信息工具(需要扩展)</p>
  *
  * @author zwp
  * @date 2018/12/12 10:27

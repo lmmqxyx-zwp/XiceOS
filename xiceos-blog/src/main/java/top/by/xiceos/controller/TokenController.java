@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>Title: TokenController</p>
- * <p>Description: </p>
+ * <p>Description: 获取TOKEN</p>
  *
  * @author zwp
  * @date 2018/12/17 12:04
