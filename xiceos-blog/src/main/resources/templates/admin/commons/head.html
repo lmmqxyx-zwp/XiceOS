@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="cn" xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="top(title)">
+    <head th:fragment="head(title)">
         <meta value="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title th:text="${title}"></title>
         <!-- 自适应 -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        <!-- 全局xBlog css样式 -->
-        <link rel="stylesheet" th:href="@{/static/css/xBlog.css}" />
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" th:href="@{/static/plugins/bootstrap/css/bootstrap.min.css}" />
         <!-- Font Awesome -->
@@ -20,6 +18,8 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" th:href="@{/static/plugins/adminLTE/css/skins/_all-skins.min.css}">
+        <!-- 全局xBlog css样式 -->
+        <link rel="stylesheet" th:href="@{/static/css/xBlog.css}" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,8 +31,6 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-        <!-- 全局xBlog js -->
-        <script th:src="@{/static/js/xBlog.js}"></script>
         <!-- jQuery 3 -->
         <script th:src="@{/static/plugins/jQuery/jquery.min.js}"></script>
         <!-- Bootstrap 3.3.7 -->
@@ -45,6 +43,10 @@
         <script th:src="@{/static/plugins/adminLTE/js/adminlte.min.js}"></script>
         <!-- AdminLTE for demo purposes -->
         <script th:src="@{/static/plugins/adminLTE/js/demo.js}"></script>
+        <!-- jQuery md5 -->
+        <script th:src="@{/static/plugins/jQueryMD5/jquery.md5.js}"></script>
+        <!-- 全局xBlog js -->
+        <script th:src="@{/static/js/xBlog.js}"></script>
 
     </head>
 </html>

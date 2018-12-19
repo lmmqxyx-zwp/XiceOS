@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import top.by.xiceos.aop.Token;
+import top.by.xiceos.api.ApiResponseData;
 import top.by.xiceos.vo.Users;
 
 /**
@@ -16,10 +19,12 @@ import top.by.xiceos.vo.Users;
 @Controller
 public class LoginController {
 
+    @Token(remove = false)
+    @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute Users loginUser) {
+    public ApiResponseData login(@ModelAttribute Users loginUser) {
 
-        return "admin/index";
+        return ApiResponseData.ofSuccess(null);
     }
 
 }

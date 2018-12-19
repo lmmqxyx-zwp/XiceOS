@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <aside th:fragment="aside" class="main-sidebar">
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img th:src="@{/static/image/user2-160x160.jpg}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>用户名称</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> 在线状态</a>
+                </div>
+            </div>
+            <!-- 搜索表单 暂时不用 -->
+            <!--<form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>-->
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">主要功能</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>控制台</span>
+                        <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 概要</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 个人设置</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 插件</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 外观</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 备份</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pencil"></i> <span>撰写</span>
+                        <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 撰写文章</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 创建页面</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-navicon"></i> <span>管理</span>
+                        <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 文章</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 独立页面</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 评论</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 分类</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 标签</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 文件</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 用户</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cog"></i> <span>设置</span>
+                        <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 基本</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 评论</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 阅读</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 永久链接</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#"><i class="fa fa-book"></i> <span>文档</span></a></li>
+                <li class="header">LABELS</li>
+                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+            </ul>
+        </section>
+    </aside>
+</body>
+</html>

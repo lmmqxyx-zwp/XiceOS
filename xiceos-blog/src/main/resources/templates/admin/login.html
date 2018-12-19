@@ -8,8 +8,6 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <!-- 全局xBlog css样式 -->
-    <link rel="stylesheet" th:href="@{/static/css/xBlog.css}" />
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" th:href="@{/static/plugins/bootstrap/css/bootstrap.min.css}" />
     <!-- Font Awesome -->
@@ -23,6 +21,8 @@
     <link rel="stylesheet" th:href="@{/static/plugins/adminLTE/css/skins/_all-skins.min.css}">
     <!-- iCheck -->
     <link rel="stylesheet" th:href="@{/static/plugins/iCheck/square/blue.css}">
+    <!-- 全局xBlog css样式 -->
+    <link rel="stylesheet" th:href="@{/static/css/xBlog.css}" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +43,7 @@
     <div class="login-box-body">
         <p class="login-box-msg" th:text="#{xblog.admin.login.info}"></p>
 
-        <form action="#" th:action="@{/admin/login}" method="post">
+        <form id="loginForm" action="#" th:action="@{/admin/login}" method="post">
             <div class="form-group has-feedback">
                 <input type="text" name="username" class="form-control" th:placeholder="#{xblog.admin.login.username}">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -82,14 +82,16 @@
 
     </div>
 </div>
-<!-- 全局xBlog js -->
-<script th:src="@{/static/js/xBlog.js}"></script>
 <!-- jQuery 3 -->
 <script th:src="@{/static/plugins/jQuery/jquery.min.js}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script th:src="@{/static/plugins/bootstrap/js/bootstrap.min.js}"></script>
 <!-- iCheck -->
 <script th:src="@{/static/plugins/iCheck/icheck.min.js}"></script>
+<!-- jQuery md5 -->
+<script th:src="@{/static/plugins/jQueryMD5/jquery.md5.js}"></script>
+<!-- 全局xBlog js -->
+<script th:src="@{/static/js/xBlog.js}"></script>
 <script>
     $(function () {
         $('input').iCheck({
@@ -99,8 +101,16 @@
         });
 
         $('#submit').on('click', function (e) {
-            alert(1);
-            $.ajax()
+            $.ajax({
+                type: 'POST',
+                url: '[[@{/login}]]',
+                data: X_BLOG_REPLACE($("#loginForm").serialize(), 'password', $.md5(X_BLOG_FIND($("#loginForm").serialize(), 'password'))),
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    window.location.href = '[[@{/admin/index}]]';
+                }
+            });
         })
     });
 </script>

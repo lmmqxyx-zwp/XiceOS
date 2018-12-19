@@ -20,8 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, HttpServletRequest request, HttpServletResponse response) {
-
+    public String login() {
         return "admin/login";
+    }
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index() {
+        return "admin/index";
     }
 }

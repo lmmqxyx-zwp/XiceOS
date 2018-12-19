@@ -149,6 +149,15 @@
             <version>1.3.7</version>
         </dependency>
 
+        <!-- 添加MD5加密支持 -->
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.11</version>
+        </dependency>
+
+
         <!-- 添加spring支持 -->
         <dependency>
             <groupId>org.springframework</groupId>
