@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="cn" xmlns:th="http://www.thymeleaf.org">
+    <!-- thymeleaf传参 -->
     <head th:fragment="head(title)">
         <meta value="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,16 +36,18 @@
         <script th:src="@{/static/plugins/jQuery/jquery.min.js}"></script>
         <!-- Bootstrap 3.3.7 -->
         <script th:src="@{/static/plugins/bootstrap/js/bootstrap.min.js}"></script>
-        <!-- SlimScroll -->
+        <!-- SlimScroll 滚动条 -->
         <script th:src="@{/static/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
         <!-- FastClick -->
         <script th:src="@{/static/plugins/fastclick/lib/fastclick.js}"></script>
         <!-- AdminLTE App -->
         <script th:src="@{/static/plugins/adminLTE/js/adminlte.min.js}"></script>
-        <!-- AdminLTE for demo purposes -->
+        <!-- AdminLTE for demo purposes TODO -->
         <script th:src="@{/static/plugins/adminLTE/js/demo.js}"></script>
-        <!-- jQuery md5 -->
+        <!-- jQuery md5 加密 -->
         <script th:src="@{/static/plugins/jQueryMD5/jquery.md5.js}"></script>
+        <!-- jQuery pjax 局部刷新 -->
+        <script th:src="@{/static/plugins/jquery-pjax/jquery.pjax.js}"></script>
         <!-- 全局xBlog js -->
         <script th:src="@{/static/js/xBlog.js}"></script>
 

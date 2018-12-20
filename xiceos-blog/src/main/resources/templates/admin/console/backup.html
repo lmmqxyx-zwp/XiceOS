@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-备份
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin/commons/head::head('XBLOG | 后台')"></head>
+<body class="hold-transition skin-blue fixed sidebar-mini inner">
+<div class="wrapper">
+    <!-- 顶部 -->
+    <header th:include="admin/commons/header::header" class="main-header"></header>
+    <!-- 左侧导航 -->
+    <aside th:include="admin/commons/aside::aside" class="main-sidebar"></aside>
+
+    <!-- 局部刷新 -->
+    <div class="content-wrapper">
+        <!-- 导航条 -->
+        <section class="content-header">
+            <h1>
+                <!--通知-->
+                <small>这是一个通知（欢迎使用XBLOB）...</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 控制台</a></li>
+                <li class="active"><a href="#">备份</a></li>
+            </ol>
+        </section>
+
+        <!-- 主体 -->
+        <section class="content">
+
+        </section>
+        <script>
+            var clickMenuName = 'console-backup';
+        </script>
+    </div>
+
+    <!-- 底部 -->
+    <footer th:include="admin/commons/footer::footer" class="main-footer"></footer>
+</div>
 </body>
 </html>
