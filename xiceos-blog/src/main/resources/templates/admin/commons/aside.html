@@ -29,67 +29,68 @@
                 <li class="header">主要功能</li>
                 <li class="treeview">
                     <a href="javascript:void(0);">
-                        <i class="fa fa-dashboard"></i> <span>控制台</span>
+                        <i class="fa fa-dashboard"></i> <span>[[#{xblog.admin.commons.aside.console}]]</span>
                         <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li id="console-index">  <a data-pjax="true" th:href="@{/admin/console/index}">  <i class="fa fa-circle-o"></i> 概要</a></li>
-                        <li id="console-profile"><a data-pjax="true" th:href="@{/admin/console/profile}"><i class="fa fa-circle-o"></i> 个人设置</a></li>
-                        <li id="console-plugins"><a data-pjax="true" th:href="@{/admin/console/plugins}"><i class="fa fa-circle-o"></i> 插件</a></li>
-                        <li id="console-themes"> <a data-pjax="true" th:href="@{/admin/console/themes}"> <i class="fa fa-circle-o"></i> 外观</a></li>
-                        <li id="console-backup"> <a data-pjax="true" th:href="@{/admin/console/backup}"> <i class="fa fa-circle-o"></i> 备份</a></li>
+                        <li id="console-index">  <a data-pjax="true" th:href="@{/admin/console/index}">  <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.console.index}]]</a></li>
+                        <li id="console-profile"><a data-pjax="true" th:href="@{/admin/console/profile}"><i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.console.profile}]]</a></li>
+                        <li id="console-plugins"><a data-pjax="true" th:href="@{/admin/console/plugins}"><i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.console.plugins}]]</a></li>
+                        <li id="console-themes"> <a data-pjax="true" th:href="@{/admin/console/themes}"> <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.console.themes}]]</a></li>
+                        <li id="console-backup"> <a data-pjax="true" th:href="@{/admin/console/backup}"> <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.console.backup}]]</a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-pencil-square-o"></i> <span>撰写</span>
+                        <i class="fa fa-pencil-square-o"></i> <span>[[#{xblog.admin.commons.aside.write}]]</span>
                         <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li id="write-post"><a data-pjax="true" th:href="@{/admin/write/post}"><i class="fa fa-circle-o"></i> 撰写文章</a></li>
-                        <li id="write-page"><a data-pjax="true" th:href="@{/admin/write/page}"><i class="fa fa-circle-o"></i> 创建页面</a></li>
+                        <li id="write-post"><a data-pjax="true" th:href="@{/admin/write/post}"><i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.write.post}]]撰写文章</a></li>
+                        <li id="write-page"><a data-pjax="true" th:href="@{/admin/write/page}"><i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.write.page}]]创建页面</a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-navicon"></i> <span>管理</span>
+                        <i class="fa fa-navicon"></i> <span>[[#{xblog.admin.commons.aside.manager}]]</span>
                         <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li id="manager-posts">     <a data-pjax="true" th:href="@{/admin/manager/posts}">     <i class="fa fa-circle-o"></i> 文章</a></li>
-                        <li id="manager-pages">     <a data-pjax="true" th:href="@{/admin/manager/pages}">     <i class="fa fa-circle-o"></i> 独立页面</a></li>
-                        <li id="manager-comments">  <a data-pjax="true" th:href="@{/admin/manager/comments}">  <i class="fa fa-circle-o"></i> 评论</a></li>
-                        <li id="manager-categories"><a data-pjax="true" th:href="@{/admin/manager/categories}"><i class="fa fa-circle-o"></i> 分类</a></li>
-                        <li id="manager-tags">      <a data-pjax="true" th:href="@{/admin/manager/tags}">      <i class="fa fa-circle-o"></i> 标签</a></li>
-                        <li id="manager-medias">    <a data-pjax="true" th:href="@{/admin/manager/medias}">    <i class="fa fa-circle-o"></i> 文件</a></li>
-                        <li id="manager-users">     <a data-pjax="true" th:href="@{/admin/manager/users}">     <i class="fa fa-circle-o"></i> 用户</a></li>
+                        <li id="manager-posts">     <a data-pjax="true" th:href="@{/admin/manager/posts}">     <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.posts}]]</a></li>
+                        <li id="manager-pages">     <a data-pjax="true" th:href="@{/admin/manager/pages}">     <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.pages}]]</a></li>
+                        <li id="manager-comments">  <a data-pjax="true" th:href="@{/admin/manager/comments}">  <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.comments}]]</a></li>
+                        <li id="manager-categories"><a data-pjax="true" th:href="@{/admin/manager/categories}"><i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.categories}]]</a></li>
+                        <li id="manager-tags">      <a data-pjax="true" th:href="@{/admin/manager/tags}">      <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.tags}]]</a></li>
+                        <li id="manager-medias">    <a data-pjax="true" th:href="@{/admin/manager/medias}">    <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.medias}]]</a></li>
+                        <li id="manager-users">     <a data-pjax="true" th:href="@{/admin/manager/users}">     <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.manager.users}]]</a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-cog"></i> <span>设置</span>
+                        <i class="fa fa-cog"></i> <span>[[#{xblog.admin.commons.aside.setup}]]</span>
                         <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li id="setup-general">   <a data-pjax="true" th:href="@{/admin/setup/general}">   <i class="fa fa-circle-o"></i> 基本</a></li>
-                        <li id="setup-discussion"><a data-pjax="true" th:href="@{/admin/setup/discussion}"><i class="fa fa-circle-o"></i> 评论</a></li>
-                        <li id="setup-reading">   <a data-pjax="true" th:href="@{/admin/setup/reading}">   <i class="fa fa-circle-o"></i> 阅读</a></li>
-                        <li id="setup-permalink"> <a data-pjax="true" th:href="@{/admin/setup/permalink}"> <i class="fa fa-circle-o"></i> 永久链接</a></li>
+                        <li id="setup-general">   <a data-pjax="true" th:href="@{/admin/setup/general}">   <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.setup.general}]]</a></li>
+                        <li id="setup-discussion"><a data-pjax="true" th:href="@{/admin/setup/discussion}"><i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.setup.discussion}]]</a></li>
+                        <li id="setup-reading">   <a data-pjax="true" th:href="@{/admin/setup/reading}">   <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.setup.reading}]]</a></li>
+                        <li id="setup-permalink"> <a data-pjax="true" th:href="@{/admin/setup/permalink}"> <i class="fa fa-circle-o"></i> [[#{xblog.admin.commons.aside.setup.permalink}]]</a></li>
                     </ul>
                 </li>
 
-                <li><a href="#"><i class="fa fa-book"></i> <span>文档</span></a></li>
+                <li><a href="#"><i class="fa fa-book"></i> <span>[[#{xblog.admin.commons.aside.document}]]</span></a></li>
+
                 <li class="header">LABELS</li>
                 <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
@@ -110,7 +111,7 @@
             });
 
             /* 绑定jquery.load点击事件 */
-            $("[data-locad='true']").each(function () {
+            $("[data-load='true']").each(function () {
                 var href = $(this).attr('href');
                 $(this).attr('load-url', href);
                 $(this).attr('href', 'javascript:;');

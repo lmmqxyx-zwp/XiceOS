@@ -24,10 +24,228 @@
 
         <!-- 主体 -->
         <section class="content">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- 基本信息 -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <img class="profile-user-img img-responsive img-circle" th:src="@{/static/image/user2-160x160.jpg}" alt="User profile picture">
+                            <h3 class="profile-username text-center">Nina Mcintire</h3>
+                            <p class="text-muted text-center">Software Engineer</p>
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>Followers</b> <a class="pull-right">1,322</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Following</b> <a class="pull-right">543</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Friends</b> <a class="pull-right">13,287</a>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                        </div>
+                    </div>
 
+                    <!-- 关于 -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">About Me</h3>
+                        </div>
+                        <div class="box-body">
+                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+                            <p class="text-muted">
+                                B.S. in Computer Science from the University of Tennessee at Knoxville
+                            </p>
+                            <hr>
+                            <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+                            <p class="text-muted">Malibu, California</p>
+                            <hr>
+                            <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+                            <p>
+                                <span class="label label-danger">UI Design</span>
+                                <span class="label label-success">Coding</span>
+                                <span class="label label-info">Javascript</span>
+                                <span class="label label-warning">PHP</span>
+                                <span class="label label-primary">Node.js</span>
+                            </p>
+                            <hr>
+                            <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#activity" data-toggle="tab">个人资料</a></li>
+                            <li><a href="#timeline" data-toggle="tab">撰写设置</a></li>
+                            <li><a href="#settings" data-toggle="tab">密码修改</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- 个人资料 -->
+                            <div class="active tab-pane" id="activity">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">昵称</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="screenname" placeholder="screenname">
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 用户昵称可以与用户名不同, 用于前台显示.</span>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 如果你将此项留空, 将默认使用用户名.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="col-sm-2 control-label">个人主页地址</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" name="url" placeholder="http(s)://">
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 此用户的个人主页地址, 请用 http://或https:// 开头.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">电子邮箱地址</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="mail" placeholder="mail">
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 电子邮箱地址将作为此用户的主要联系方式.</span>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 请不要与系统中现有的电子邮箱地址重复.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label style="padding-left: 0;">
+                                                    <input type="checkbox" class="minimal"> 我同意个人资料修改 <a href="#">条款</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <!-- 勾选同意允许修改 -->
+                                            <button type="submit" class="btn bg-navy btn-flat margin" disabled>更改我的档案</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- 撰写设置 -->
+                            <div class="tab-pane" id="timeline">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">使用 Markdown 语法编辑和解析内容</label>
+                                        <div class="col-sm-10">
+                                            <label>
+                                                <input type="radio" name="markdown" value="0" class="minimal"> 关闭
+                                                <input type="radio" name="markdown" value="1" class="minimal"> 打开
+                                            </label>
+                                            <!-- http://daringfireball.net/projects/markdown/ -->
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 使用 <a href="#">Markdown</a> 语法能够使您的撰写过程更加简便直观..</span>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 此功能开启不会影响以前没有使用 Markdown 语法编辑的内容.</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="col-sm-2 control-label">在 XMLRPC 接口中使用 Markdown 语法</label>
+
+                                        <div class="col-sm-10">
+                                            <label>
+                                                <input type="radio" name="xmlrpcMarkdown" value="0" class="minimal"> 关闭
+                                                <input type="radio" name="xmlrpcMarkdown" value="1" class="minimal"> 打开
+                                            </label>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 对于完全支持 <a href="#">Markdown</a> 语法写作的离线编辑器, 打开此选项后将避免内容被转换为 HTML.</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">自动保存</label>
+
+                                        <div class="col-sm-10">
+                                            <label>
+                                                <input type="radio" name="autoSave" value="0" class="minimal"> 关闭
+                                                <input type="radio" name="autoSave" value="1" class="minimal"> 打开
+                                            </label>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 自动保存功能可以更好地保护你的文章不会丢失.</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">默认允许</label>
+
+                                        <div class="col-sm-10">
+                                            <label>
+                                                <label style="padding-left: 0;">
+                                                    <input type="checkbox" name="defaultAllow" value="comment" class="minimal"> 可以被评论
+                                                    <input type="checkbox" name="defaultAllow" value="ping"    class="minimal"> 可以被引用
+                                                    <input type="checkbox" name="defaultAllow" value="feed"    class="minimal"> 出现在聚合中
+                                                </label>
+                                            </label>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 设置你经常使用的默认允许权限.</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label style="padding-left: 0;">
+                                                    <input type="checkbox" class="minimal"> 我同意撰写设置 <a href="#">条款</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <!-- 勾选同意允许修改 -->
+                                            <button type="submit" class="btn bg-navy btn-flat margin" disabled>保存设置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- 密码修改 -->
+                            <div class="tab-pane" id="settings">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">密码</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="password">
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 为此用户分配一个密码.</span>
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 建议使用特殊字符与字母、数字的混编样式,以增加系统安全性.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">密码确认</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" name="confirm">
+                                            <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 请确认你的密码, 与上面输入的密码保持一致.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn bg-navy btn-flat margin">更新密码</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <script>
             var clickMenuName = 'console-profile';
+            
+            $(function () {
+                //iCheck for checkbox and radio inputs
+                $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                    checkboxClass: 'icheckbox_minimal-blue',
+                    radioClass   : 'iradio_minimal-blue'
+                })
+            })
         </script>
     </div>
 
