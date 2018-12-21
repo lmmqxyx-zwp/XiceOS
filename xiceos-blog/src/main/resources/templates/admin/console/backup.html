@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="cn" xmlns:th="http://www.thymeleaf.org">
-<head th:include="admin/commons/head::head('XBLOG | 后台')"></head>
+<head th:include="admin/commons/head::head('XBLOG | 备份')"></head>
 <body class="hold-transition skin-blue fixed sidebar-mini inner">
 <div class="wrapper">
     <!-- 顶部 -->
@@ -24,7 +24,49 @@
 
         <!-- 主体 -->
         <section class="content">
-
+            <div class="col-md-6">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><b>备份</b></h3>
+                    </div>
+                    <div class="box-body">
+                        <h4><b>备份您的数据</b></h4>
+                        <ul>
+                            <li>此备份操作仅包含<strong>内容数据</strong>, 并不会涉及任何<strong>设置信息</strong></li>
+                            <li>如果您的数据量过大, 为了避免操作超时, 建议您直接使用数据库提供的备份工具备份数据</li>
+                            <li><code><strong>为了缩小备份文件体积, 建议您在备份前删除不必要的数据</strong></code></li>
+                        </ul>
+                        <p>
+                            <button type="button" class="btn bg-navy margin" disabled>开始备份 >></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><b>恢复数据</b></h3>
+                    </div>
+                    <div class="box-body">
+                        <h4><b>上传</b></h4>
+                        <p><input type="file"></p>
+                        <p>
+                            <button type="button" class="btn bg-navy margin" disabled>上传并恢复 >></button>
+                        </p>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="box-body">
+                        <h4><b>从服务器</b></h4>
+                        <ul>
+                            <li>将备份文件手动上传至服务器的</li>
+                            <li>将备份文件手动上传至服务器的 C:\wamp64\www\typecho/usr/backups 目录下后, 这里会出现文件选项</li>
+                        </ul>
+                        <p>
+                            <button type="button" class="btn bg-navy margin" disabled>选择并恢复 >></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
         <script>
             var clickMenuName = 'console-backup';
