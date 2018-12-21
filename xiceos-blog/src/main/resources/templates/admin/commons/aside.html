@@ -98,7 +98,9 @@
             </ul>
         </section>
         <script>
-            /* 绑定jquery.pjax点击事件 */
+            /* 两种方式刷新页面 */
+
+            /* 一、绑定jquery.pjax点击事件 */
             $(document).pjax("[data-pjax='true'], a[data-pjax='true']", ".content-wrapper", {
                 fragment: '.content-wrapper'
             });
@@ -110,7 +112,7 @@
                 showClickMenu();
             });
 
-            /* 绑定jquery.load点击事件 */
+            /* 二、绑定jquery.load点击事件 */
             $("[data-load='true']").each(function () {
                 var href = $(this).attr('href');
                 $(this).attr('load-url', href);
