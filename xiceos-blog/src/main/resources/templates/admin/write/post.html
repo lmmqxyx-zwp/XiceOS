@@ -28,7 +28,7 @@
                 <div class="col-md-9">
                     <div class="box box-info">
                         <div class="box-header">
-                            <h3 class="box-title">撰写新文章
+                            <h3 class="box-title"><b>撰写新文章</b>
                                 <small>Advanced and full of features</small>
                             </h3>
                         </div>
@@ -40,6 +40,48 @@
                                     <code>typecho.w240.com/index.php/archives/{cid}/</code>
                                 </div>
                                 <textarea id="editor1" name="editor1" rows="10" cols="80" placeholder="文章内容"></textarea>
+                                <div class="col-md-12" style="margin-top: 7px; padding: 0;">
+                                    <div class="box box-default collapsed-box" style="border-top: solid 1px #00C0EF; border-radius: 0;">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><b>自定义字段</b></h3>
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="字段名称">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <div class="form-group">
+                                                        <select class="form-control" style="width: 100%;">
+                                                            <option selected="selected">字符</option>
+                                                            <option>整数</option>
+                                                            <option disabled="disabled">小数 (disabled)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="字段值">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn bg-maroon btn-flat margin" style="margin: 0;"> 刪除</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <p>
+                                                <button type="button" class="btn bg-navy btn-flat margin" style="margin: 0;"> 添加</button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -125,7 +167,7 @@
                                 <div class="form-group">
                                     <label>引用通告</label>
                                     <textarea class="form-control" rows="3" placeholder="Enter ..." style="margin: 0px 2.2px 0px 0px; width: 370px; height: 87px;"></textarea>
-                                    <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i>每一行一个引用地址, 用回车隔开</span>
+                                    <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i> 每一行一个引用地址, 用回车隔开</span>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_2">
@@ -150,7 +192,7 @@
                     filebrowserImageUploadUrl : 'upload_img.do',
                     language : 'zh-cn',
                     image_previewText:' ' ,
-                    height: 450
+                    height: 370
                 });
                 //Date picker
                 // $('#datepicker').datepicker({
