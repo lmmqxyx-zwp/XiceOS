@@ -24,10 +24,146 @@
 
         <!-- 主体 -->
         <section class="content">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <h3 class="box-title">撰写新文章
+                                <small>Advanced and full of features</small>
+                            </h3>
+                        </div>
+                        <div class="box-body pad">
+                            <form>
+                                <div class="form-group has-success">
+                                    <!--<label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Input with success</label>-->
+                                    <input type="text" class="form-control" id="inputSuccess" placeholder="文章标题">
+                                    <code>typecho.w240.com/index.php/archives/{cid}/</code>
+                                </div>
+                                <textarea id="editor1" name="editor1" rows="10" cols="80" placeholder="文章内容"></textarea>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">选项</a></li>
+                            <li><a href="#tab_2" data-toggle="tab">附件</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <div class="form-group">
+                                    <label>发布日期</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>分类</label>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 分类一
+                                        </label>
+                                    </div>
 
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 分类二
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" disabled=""> 分类三
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group has-success">
+                                    <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> 标签</label>
+                                    <input type="text" class="form-control">
+                                    <span class="help-block">Help block with success</span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn bg-navy btn-flat margin" style="margin: 0;"> 高级选项 <i class="fa fa-caret-down"></i></button>
+                                </div>
+                                <!-- 高级选项 -->
+                                <div class="form-group">
+                                    <label>公开度</label>
+                                    <!-- 带搜索功能的下拉框 使用了select2 -->
+                                    <!--<select class="form-control select2" style="width: 100%;">-->
+                                    <select class="form-control" style="width: 100%;">
+                                        <option selected="selected">公开</option>
+                                        <option>隐藏</option>
+                                        <option disabled="disabled">密码保护 (disabled)</option>
+                                        <option>私密</option>
+                                        <option>待审核</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>权限控制</label>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 允许评论
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 允许被引用
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" disabled=""> 允许在聚合中出现
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>引用通告</label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter ..." style="margin: 0px 2.2px 0px 0px; width: 370px; height: 87px;"></textarea>
+                                    <span class="help-block" style="color: #f39c12;"><i class="fa fa-bell-o"></i>每一行一个引用地址, 用回车隔开</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_2">
+                                <div class="form-group">
+                                    <label>拖放附件</label>
+                                    <p><input type="file"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <script>
             var clickMenuName = 'write-post';
+            
+            $(function () {
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                //CKEDITOR.replace('editor1')
+                CKEDITOR.replace('editor1', {
+                    filebrowserImageUploadUrl : 'upload_img.do',
+                    language : 'zh-cn',
+                    image_previewText:' ' ,
+                    height: 450
+                });
+                //Date picker
+                // $('#datepicker').datepicker({
+                //     autoclose: true
+                // })
+                //Date pickertime
+                $('#datepicker').datetimepicker({
+                    format: 'yyyy-mm-dd hh:ii:ss',
+                    autoclose: true,
+                    language : 'zh-CN'
+                });
+                $('.select2').select2();
+            });
         </script>
     </div>
 
