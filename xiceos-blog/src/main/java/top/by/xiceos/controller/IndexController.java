@@ -16,6 +16,9 @@ import top.by.xiceos.vo.Users;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: IndexController</p>
@@ -122,6 +125,26 @@ public class IndexController {
     @RequestMapping(value = "/searchAll", method = RequestMethod.GET)
     public ApiResponseData search() {
         return usersService.findAll();
+    }
+
+    /**
+     * 测试jquery database分页
+     *
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/pages2", method = RequestMethod.GET)
+    public Map<String, Object> search(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap<>();
+        int draw = Integer.parseInt(request.getParameter("draw"));
+        map.put("draw", draw);
+        List<Users> list = (List) usersService.findAll().getData();
+        map.put("recordsTotal", list.size());
+        map.put("recordsFiltered", list.size());
+        map.put("data", list);
+
+        return map;
     }
 
     /**
