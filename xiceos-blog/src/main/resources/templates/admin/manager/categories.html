@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="cn" xmlns:th="http://www.thymeleaf.org">
-<head th:include="admin/commons/head::head('XBLOG | 后台')"></head>
+<head th:include="admin/commons/head::head('XBLOG | 分类')"></head>
 <body class="hold-transition skin-blue fixed sidebar-mini inner">
 <div class="wrapper">
     <!-- 顶部 -->
@@ -24,7 +24,50 @@
 
         <!-- 主体 -->
         <section class="content">
-
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">分类管理</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>选择</th>
+                                    <th>名称</th>
+                                    <th>子分类</th>
+                                    <th>缩略名</th>
+                                    <th>设为默认</th>
+                                    <th>文章数</th>
+                                </tr>
+                                <tr>
+                                    <td>WYS</td>
+                                    <td>模仿ACFUN通知条公告</td>
+                                    <td>1.0.0</td>
+                                    <td><span class="label label-success">阿硕</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs">禁用</button>
+                                        <button type="button" class="btn btn-success btn-xs">启用</button>
+                                        <button type="button" class="btn btn-info    btn-xs">设置</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HelloWorld</td>
+                                    <td>Hello World</td>
+                                    <td>1.0.0</td>
+                                    <td><span class="label label-warning">qining</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs">禁用</button>
+                                        <button type="button" class="btn btn-success btn-xs">启用</button>
+                                        <button type="button" class="btn btn-info    btn-xs">设置</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <script>
             var clickMenuName = 'manager-categories';
