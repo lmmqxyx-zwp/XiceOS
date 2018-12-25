@@ -32,24 +32,51 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
-                            <table class="table table-hover">
-                                <tr>
-                                    <th>选择</th>
-                                    <th>名称</th>
-                                    <th>子分类</th>
-                                    <th>缩略名</th>
-                                    <th>设为默认</th>
-                                    <th>文章数</th>
-                                </tr>
-                            </table>
                         </div>
                         <span class="help-block" style="color: red;"><i class="fa fa-bell-o"></i> 采用树形结构管理（未完成、采用JSTREE）</span>
+                        <div id="category"></div>
                     </div>
                 </div>
             </div>
         </section>
         <script>
             var clickMenuName = 'manager-categories';
+
+            // 获取整个数
+            var jsTree;
+
+            $(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '[[@{/admin/manager/getCategories}]]',
+                    data: {'type': 'category'},
+                    dataType: 'json',
+                    success: function (jsTreeData) {
+                        debugger;
+                        if (jsTreeData.code == 200) {
+                            $('#category').jstree({
+                                plugins: ['checkbox', 'dnd', 'types'],
+                                types: {
+                                    'default': {
+                                        'icon': 'fa fa-leaf'
+                                    },
+                                    'icon': {
+                                        'icon': 'fa fa-leaf'
+                                    }
+                                },
+                                core: {
+                                    check_callback: true,
+                                    data: jsTreeData.data
+                                }
+                            });
+                            jsTree = $('#category').jstree(true);
+                        } else {
+                            layer.alert("分类树初始化失败");
+                        }
+                    }
+                });
+
+            });
         </script>
     </div>
 
