@@ -13,7 +13,7 @@ import top.by.xiceos.api.ApiResponseData;
 /**
  * <p>Title: ControllerExceptionAspect</p>
  * <p>Description:
- *      控制层异常统一处理
+ *      控制层异常统一处理(处理返回ApiResponseData方法)
  *      Order好像不起作用(越小的越先执行)
  *      设置Order是因为怕Controller会重复调用、其实不会重复调用
  * </p>

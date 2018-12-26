@@ -41,7 +41,7 @@ create table `blog_comments` (
   primary key (`coid`),
   key `cid` (`cid`),
   key `created` (`created`)
-) engine=myisam auto_increment=2 default charset=utf8;
+) engine=myisam auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_contents 内容表
@@ -68,7 +68,7 @@ create table `blog_contents` (
   primary key (`cid`),
   unique key `slug` (`slug`),
   key `created` (`created`)
-) engine=myisam auto_increment=3 default charset=utf8;
+) engine=myisam auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_fields 扩展字段表
@@ -101,7 +101,7 @@ create table `blog_metas` (
   `parent` int(10) unsigned default '0',
   primary key (`mid`),
   key `slug` (`slug`)
-) engine=myisam auto_increment=2 default charset=utf8;
+) engine=myisam auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_options 配置表
@@ -144,21 +144,21 @@ create table `blog_users` (
   primary key (`uid`),
   unique key `username` (`username`),
   unique key `mail` (`mail`)
-) engine=myisam auto_increment=3 default charset=utf8;
+) engine=myisam auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- Table structure for blog_operation_log
 -- ----------------------------
-DROP TABLE IF EXISTS `blog_operation_log`;
-CREATE TABLE `blog_operation_log` (
-  `lid` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `uid` int(10) DEFAULT NULL COMMENT '用户主键',
-  `username` varchar(32) DEFAULT NULL COMMENT '用户名称',
-  `ip` varchar(64) DEFAULT NULL COMMENT '用户IP',
-  `param` varchar(255) DEFAULT NULL COMMENT '操作参数',
-  `desc` varchar(255) DEFAULT NULL COMMENT '操作描述',
-  `type` varchar(32) DEFAULT NULL COMMENT '日志类型',
-  `createtime` datetime DEFAULT NULL COMMENT '创建时间',
-  `result` varchar(32) DEFAULT NULL COMMENT '日志结果',
-  PRIMARY KEY (`lid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+drop table if exists `blog_operation_log`;
+create table `blog_operation_log` (
+  `lid` int(10) not null auto_increment comment '主键id',
+  `uid` int(10) default null comment '用户主键',
+  `username` varchar(32) default null comment '用户名称',
+  `ip` varchar(64) default null comment '用户ip',
+  `param` varchar(255) default null comment '操作参数',
+  `desc` varchar(255) default null comment '操作描述',
+  `type` varchar(32) default null comment '日志类型',
+  `createtime` datetime default null comment '创建时间',
+  `result` text comment '日志结果',
+  primary key (`lid`)
+) engine=myisam auto_increment=1 default charset=utf8;
