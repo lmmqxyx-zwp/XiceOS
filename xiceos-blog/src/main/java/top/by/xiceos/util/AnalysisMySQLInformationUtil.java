@@ -99,6 +99,7 @@ public class AnalysisMySQLInformationUtil {
      *
      * @return
      */
+    @Deprecated
     private String mapperXMLTemplate() {
         StringBuilder sb = new StringBuilder();
         sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");

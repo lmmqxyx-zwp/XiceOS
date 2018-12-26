@@ -66,7 +66,11 @@ public class TokenContract {
                 try {
                     boolean isRepeat = isRepeatSubmit(request);
                     if (isRepeat) {
-                        throw new FormRepeatException(messageSource.getMessage("xblog.aop.log.token.message", new Object[]{}, LocaleContextHolder.getLocale()));
+                        throw new FormRepeatException(messageSource.getMessage(
+                                "xblog.aop.log.token.message",
+                                new Object[]{},
+                                LocaleContextHolder.getLocale())
+                        );
                     }
                 } catch (FormRepeatException e) {
                     throw new Exception(e);
@@ -89,7 +93,11 @@ public class TokenContract {
     private boolean isRepeatSubmit(HttpServletRequest request) throws FormRepeatException {
         // 判断时候获取过token值，若没有获取过token值则session为NULL
         if (request.getSession(false) == null) {
-            throw new FormRepeatException(messageSource.getMessage("xblog.aop.log.token.session.message", new Object[]{}, LocaleContextHolder.getLocale()));
+            throw new FormRepeatException(messageSource.getMessage(
+                    "xblog.aop.log.token.session.message",
+                    new Object[]{},
+                    LocaleContextHolder.getLocale())
+            );
         }
 
         String token = (String) request.getSession(false).getAttribute(TOKEN_KEY);
@@ -105,7 +113,11 @@ public class TokenContract {
         }
 
         if (!token.equals(clientToken)) {
-            throw new FormRepeatException(messageSource.getMessage("xblog.aop.log.token.message", new Object[]{}, LocaleContextHolder.getLocale()));
+            throw new FormRepeatException(messageSource.getMessage(
+                    "xblog.aop.log.token.message",
+                    new Object[]{},
+                    LocaleContextHolder.getLocale())
+            );
         }
 
         return false;

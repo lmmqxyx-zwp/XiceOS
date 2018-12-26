@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.by.xiceos.dao.OperationLogDao">
+    <sql id="table_name">
+        blog_operation_log
+    </sql>
+
+    <sql id="table_column">
+        `lid`, `uid`, `username`, `ip`, `param`, `desc`, `type`, `createtime`, `result`
+    </sql>
+
+    <!-- 数据插入 -->
+    <insert id="insert" parameterType="top.by.xiceos.vo.OperationLog">
+        INSERT INTO
+        <include refid="table_name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="lid != null">
+                `lid`,
+            </if>
+            <if test="uid != null">
+                `uid`,
+            </if>
+            <if test="username != null">
+                `username`,
+            </if>
+            <if test="ip != null">
+                `ip`,
+            </if>
+            <if test="param != null">
+                `param`,
+            </if>
+            <if test="desc != null">
+                `desc`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="createtime != null">
+                `createtime`,
+            </if>
+            <if test="result != null">
+                `result`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="lid != null">
+                #{lid},
+            </if>
+            <if test="uid != null">
+                #{uid},
+            </if>
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="ip != null">
+                #{ip},
+            </if>
+            <if test="param != null">
+                #{param},
+            </if>
+            <if test="desc != null">
+                #{desc},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="createtime != null">
+                #{createtime},
+            </if>
+            <if test="result != null">
+                #{result},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 数据删除 -->
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM
+        <include refid="table_name"/>
+        WHERE
+        lid = #{lid}
+    </delete>
+
+    <!-- 数据修改 -->
+    <update id="update" parameterType="top.by.xiceos.vo.OperationLog">
+        UPDATE            <include refid="table_name"/>
+        <trim prefix="set" suffixOverrides=",">
+              <if test="lid != null">
+                `lid` = #{lid},
+              </if>
+              <if test="uid != null">
+                `uid` = #{uid},
+              </if>
+              <if test="username != null">
+                `username` = #{username},
+              </if>
+              <if test="ip != null">
+                `ip` = #{ip},
+              </if>
+              <if test="param != null">
+                `param` = #{param},
+              </if>
+              <if test="desc != null">
+                `desc` = #{desc},
+              </if>
+              <if test="type != null">
+                `type` = #{type},
+              </if>
+              <if test="createtime != null">
+                `createtime` = #{createtime},
+              </if>
+              <if test="result != null">
+                `result` = #{result},
+              </if>
+        </trim>
+        WHERE
+            lid = #{lid}
+    </update>
+
+    <!-- 数据查询 单条数据 -->
+    <select id="findById" parameterType="java.lang.Long" resultType="top.by.xiceos.vo.OperationLog">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+            lid = #{lid}
+    </select>
+
+    <!-- 数据查询 多条数据 -->
+    <select id="findByIds" resultType="top.by.xiceos.vo.OperationLog">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+        WHERE
+        lid IN
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 查询数据 全部 -->
+    <select id="findAll" resultType="top.by.xiceos.vo.OperationLog">
+        SELECT
+            <include refid="table_column"/>
+        FROM
+            <include refid="table_name"/>
+    </select>
+
+</mapper>

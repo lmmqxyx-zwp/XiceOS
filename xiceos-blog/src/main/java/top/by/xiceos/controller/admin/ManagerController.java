@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import top.by.xiceos.aop.Operation;
+import top.by.xiceos.aop.OperationType;
 import top.by.xiceos.api.ApiResponseData;
 import top.by.xiceos.service.MetasService;
 import top.by.xiceos.vo.JsTree;
@@ -44,6 +46,8 @@ public class ManagerController {
     private static final String VIEW_TAGS       = "admin/manager/tags";
     /* 用户 */
     private static final String VIEW_USERS      = "admin/manager/users";
+
+    // ----------------- 页面展示层 ----------------- \\
 
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
     public ModelAndView categories() {
@@ -101,12 +105,22 @@ public class ManagerController {
         return mv;
     }
 
-    // 获取分类
+    // ----------------- 页面展示层 ----------------- \\
+
+    // ----------------- 数据组织层 ----------------- \\
+
+    /**
+     * 获取分类初始化分类树
+     *
+     * @param type
+     * @return
+     */
+    @Operation(type = OperationType.SELECT, desc = "获取分类初始化分类树", argsDesc = {"类型"})
     @RequestMapping(value = "/getCategories", method = RequestMethod.GET)
     @ResponseBody
     public ApiResponseData getCategories(String type) {
         if (type == null || "".equals(type)) {
-            return ApiResponseData.ofStatus(ApiResponseData.Status.INTERNAL_SERVER_ERROR);
+            return ApiResponseData.ofStatus(ApiResponseData.Status.PARAMETRIC_VERIFICATION_EXCEPTION);
         }
         List<JsTree<Metas>> categories = new ArrayList<>();
 

@@ -145,3 +145,20 @@ create table `blog_users` (
   unique key `username` (`username`),
   unique key `mail` (`mail`)
 ) engine=myisam auto_increment=3 default charset=utf8;
+
+-- ----------------------------
+-- Table structure for blog_operation_log
+-- ----------------------------
+DROP TABLE IF EXISTS `blog_operation_log`;
+CREATE TABLE `blog_operation_log` (
+  `lid` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `uid` int(10) DEFAULT NULL COMMENT '用户主键',
+  `username` varchar(32) DEFAULT NULL COMMENT '用户名称',
+  `ip` varchar(64) DEFAULT NULL COMMENT '用户IP',
+  `param` varchar(255) DEFAULT NULL COMMENT '操作参数',
+  `desc` varchar(255) DEFAULT NULL COMMENT '操作描述',
+  `type` varchar(32) DEFAULT NULL COMMENT '日志类型',
+  `createtime` datetime DEFAULT NULL COMMENT '创建时间',
+  `result` varchar(32) DEFAULT NULL COMMENT '日志结果',
+  PRIMARY KEY (`lid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

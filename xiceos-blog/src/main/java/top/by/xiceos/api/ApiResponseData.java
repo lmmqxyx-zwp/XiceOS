@@ -7,7 +7,7 @@ package top.by.xiceos.api;
  * @author zwp
  * @date 2018/12/17 17:51
  */
-public class ApiResponseData {
+public class ApiResponseData<T> {
 
     /* 状态码 */
     private int code;
@@ -16,12 +16,12 @@ public class ApiResponseData {
     private String message;
 
     /* 数据 */
-    private Object data;
+    private T data;
 
     /* 更多 */
     private boolean more;
 
-    public ApiResponseData(int code, String message, Object data) {
+    public ApiResponseData(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -52,7 +52,7 @@ public class ApiResponseData {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -90,6 +90,10 @@ public class ApiResponseData {
         INTERNAL_SERVER_ERROR(500, "Unknown Internal Error"),
         NOT_VALID_PARAM(40005, "Not valid Params"),
         NOT_SUPPORTED_OPERATION(40006, "Operation not supported"),
+        // 数据组织异常
+        DATA_ORGANIZATION_EXCEPTION(40007, "Data organization exception"),
+        // 参数验证异常
+        PARAMETRIC_VERIFICATION_EXCEPTION(40008, "Parametric verification exception"),
         NOT_LOGIN(50000, "Not Login");
 
         private int code;

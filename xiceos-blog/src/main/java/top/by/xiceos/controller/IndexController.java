@@ -8,6 +8,8 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import top.by.xiceos.aop.Operation;
+import top.by.xiceos.aop.OperationType;
 import top.by.xiceos.aop.Token;
 import top.by.xiceos.api.ApiResponseData;
 import top.by.xiceos.service.UsersService;
@@ -49,7 +51,6 @@ public class IndexController {
         // logger.info("插入数据：" + count);
         // ApiResponseData data = usersService.getPages(3, 4);
         // logger.info(request.getSession().getAttribute("token").toString());
-        // System.out.println(10/0);
         return "index";
     }
 
@@ -117,24 +118,14 @@ public class IndexController {
     }
 
     /**
-     * (http://127.0.0.1:8080/xblog/searchAll)
-     *
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/searchAll", method = RequestMethod.GET)
-    public ApiResponseData search() {
-        return usersService.findAll();
-    }
-
-    /**
      * 测试jquery database分页
      *
      * @param request
      * @return
      */
-    @ResponseBody
+    @Operation(type = OperationType.SELECT, desc = "测试jquery database分页", argsDesc = {"datatable的request请求"})
     @RequestMapping(value = "/pages2", method = RequestMethod.GET)
+    @ResponseBody
     public Map<String, Object> search(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
         int draw = Integer.parseInt(request.getParameter("draw"));
@@ -145,6 +136,17 @@ public class IndexController {
         map.put("data", list);
 
         return map;
+    }
+
+    /**
+     * (http://127.0.0.1:8080/xblog/searchAll)
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/searchAll", method = RequestMethod.GET)
+    public ApiResponseData search() {
+        return usersService.findAll();
     }
 
     /**

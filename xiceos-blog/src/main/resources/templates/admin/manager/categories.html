@@ -30,7 +30,6 @@
                         <div class="box-header">
                             <h3 class="box-title">分类管理</h3>
                         </div>
-                        <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                         </div>
                         <span class="help-block" style="color: red;"><i class="fa fa-bell-o"></i> 采用树形结构管理（未完成、采用JSTREE）</span>
@@ -43,8 +42,10 @@
             var clickMenuName = 'manager-categories';
 
             // 获取整个数
+            // 用来操作相关节点
             var jsTree;
 
+            // 获取所有的分类数据生成树
             $(function () {
                 $.ajax({
                     type: 'GET',
@@ -69,13 +70,13 @@
                                     data: jsTreeData.data
                                 }
                             });
+                            // 初始化树变量
                             jsTree = $('#category').jstree(true);
                         } else {
-                            layer.alert("分类树初始化失败");
+                            layer.alert("分类树初始化失败，请检查数据");
                         }
                     }
                 });
-
             });
         </script>
     </div>

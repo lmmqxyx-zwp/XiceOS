@@ -156,55 +156,55 @@
                 // });
 
                 // 服务器模式 获取分页数据(以上两种方式适合处理10000条以内的数据)
-                var table = $('#example1').DataTable({
-                    // 开启服务器模式
-                    serverSide: true,
-                    searching: true,
-                    ordering : true,
-                    // 设置语言(国际化)
-                    language: {
-                        url: '[[@{/static/plugins/datatables.net-bs/language.json}]]'
-                    },
-                    ajax: {
-                        url: '[[@{/pages2}]]',
-                        type: 'get',
-                        // 注意这块返回的只是数据，并不是包含分页的信息
-                        dataSrc: function (json) {
-                            //   debugger;
-                            //   console.log(json);
-                            // if (json.code == 200) {
-                            //     var data = {};
-                            //     data.draw = 1;
-                            //     data.recordsTotal = json.data.total;
-                            //     data.recordsFiltered = json.data.total;
-                            //     data.data = json.data.list;
-                            //
-                            //     for (var i = 0; i < data.data.length; i++) {
-                            //         data.data[i]['operation'] = '删除 | 查看';
-                            //     }
-                            //     return data;
-                            // }
-                            // 操作的内容可以在后台封装
-                            return json.data;
-                        }
-                    },
-                    columns: [
-                        {data: 'uid'},
-                        {data: 'username'},
-                        {data: 'group'},
-                        {data: 'mail'},
-                        {data: 'url'}
-                    ],
-                    // 指定某列不排序
-                    aoColumnDefs: [{
-                        bSortable: false,
-                        aTargets: [4]
-                    }],
-                    fnDrawCallback: function (data) {
-                        debugger;
-                        console.log(data);
-                    }
-                });
+                // var table = $('#example1').DataTable({
+                //     // 开启服务器模式
+                //     serverSide: true,
+                //     searching: true,
+                //     ordering : true,
+                //     // 设置语言(国际化)
+                //     language: {
+                //         url: '[[@{/static/plugins/datatables.net-bs/language.json}]]'
+                //     },
+                //     ajax: {
+                //         url: '[[@{/pages2}]]',
+                //         type: 'get',
+                //         // 注意这块返回的只是数据，并不是包含分页的信息
+                //         dataSrc: function (json) {
+                //             //   debugger;
+                //             //   console.log(json);
+                //             // if (json.code == 200) {
+                //             //     var data = {};
+                //             //     data.draw = 1;
+                //             //     data.recordsTotal = json.data.total;
+                //             //     data.recordsFiltered = json.data.total;
+                //             //     data.data = json.data.list;
+                //             //
+                //             //     for (var i = 0; i < data.data.length; i++) {
+                //             //         data.data[i]['operation'] = '删除 | 查看';
+                //             //     }
+                //             //     return data;
+                //             // }
+                //             // 操作的内容可以在后台封装
+                //             return json.data;
+                //         }
+                //     },
+                //     columns: [
+                //         {data: 'uid'},
+                //         {data: 'username'},
+                //         {data: 'group'},
+                //         {data: 'mail'},
+                //         {data: 'url'}
+                //     ],
+                //     // 指定某列不排序
+                //     aoColumnDefs: [{
+                //         bSortable: false,
+                //         aTargets: [4]
+                //     }],
+                //     fnDrawCallback: function (data) {
+                //         debugger;
+                //         console.log(data);
+                //     }
+                // });
 
                 // 选中行数据
                 // $('#example1 tbody').on('click', 'tr', function () {
@@ -229,7 +229,7 @@
                 //    'info'        : true,
                 //    'autoWidth'   : false
                 //});
-            })
+            });
         </script>
     </div>
 

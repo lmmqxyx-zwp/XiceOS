@@ -19,5 +19,11 @@ public interface MetasService {
 
     ApiResponseData getPages(int pageNum, int pageSize);
 
+    /**
+     * 根据类型获取所有分类(由于分类和标签存储在同一张表中的原因导致不能直接获取全部数据)
+     *
+     * @param type 类型
+     * @return 所有分类
+     */
     ApiResponseData findByType(String type);
 }

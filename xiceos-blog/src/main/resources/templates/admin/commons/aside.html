@@ -100,8 +100,12 @@
         <script>
             /* 两种方式刷新页面 */
 
+            // 注意请求两次的问题
+            // 原因：ajax 超时时间（单位 ms），超时后会执行默认的页面跳转，所以超时时间不应过短，不过一般不需要设置
+            // 默认：timeout = 650
             /* 一、绑定jquery.pjax点击事件 */
             $(document).pjax("[data-pjax='true'], a[data-pjax='true']", ".content-wrapper", {
+                timeout: 60000,
                 fragment: '.content-wrapper'
             });
 

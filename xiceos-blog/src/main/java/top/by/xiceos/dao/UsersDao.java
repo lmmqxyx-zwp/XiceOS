@@ -18,9 +18,4 @@ import java.util.List;
 @Mapper
 public interface UsersDao extends BaseDao<Users> {
 
-    int insert(Users users);
-
-    @Select("select * from blog_users where uid = #{uid}")
-    Users selectUsers2(Users users);
-
 }
