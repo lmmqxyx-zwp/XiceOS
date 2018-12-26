@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import top.by.xiceos.exception.FormRepeatException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 /**
@@ -32,25 +33,30 @@ public class TokenContract {
 
     @Before("within(@org.springframework.stereotype.Controller *) && @annotation(token)")
     public void token(final JoinPoint joinPoint, Token token) throws Exception {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+
         if (token != null) {
+            HttpServletRequest request = attributes.getRequest();
+
+            // # 2018年12月26日 去除落后的request取得方式
             // 获取joinPoint的全部参数
             // 切入点的参数，即controller的方法的形参
             // 如果是只有接受对象的参数的方法，那么没有request时将会取不到session的值 => 空指针
-            Object[] args = joinPoint.getArgs();
+            // Object[] args = joinPoint.getArgs();
 
-            HttpServletRequest request = null;
-            HttpServletResponse response = null;
+            // HttpServletRequest request = null;
+            // HttpServletResponse response = null;
 
-            for (int i = 0; i < args.length; i++) {
-                // 获取参数中的request和response
-                if (args[i] instanceof HttpServletRequest) {
-                    request = (HttpServletRequest) args[i];
-                }
-
-                if (args[i] instanceof HttpServletResponse) {
-                    response = (HttpServletResponse) args[i];
-                }
-            }
+            //for (int i = 0; i < args.length; i++) {
+            //    // 获取参数中的request和response
+            //    if (args[i] instanceof HttpServletRequest) {
+            //        request = (HttpServletRequest) args[i];
+            //    }
+            //
+            //    if (args[i] instanceof HttpServletResponse) {
+            //        response = (HttpServletResponse) args[i];
+            //    }
+            //}
 
             boolean setToken = token.setToken();
 
