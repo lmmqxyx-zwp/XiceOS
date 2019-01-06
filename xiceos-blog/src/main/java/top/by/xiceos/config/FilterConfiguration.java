@@ -27,6 +27,7 @@ public class FilterConfiguration {
 
     /**
      * 字符编码过滤器
+     * 注意：spring自己有一个字符编码过滤器，如果不小心把名字起重复了之后是调用不到自己写的Filter的
      *
      * @return
      */

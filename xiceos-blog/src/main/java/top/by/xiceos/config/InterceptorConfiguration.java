@@ -57,6 +57,8 @@ public class InterceptorConfiguration {
     //     };
     // }
 
+    // 拦截后台操作
+    // 如果没有登录不允许进行后台操作
     @Bean
     public WebMvcConfigurer addLoginInterceptor() {
         return new WebMvcConfigurer() {
