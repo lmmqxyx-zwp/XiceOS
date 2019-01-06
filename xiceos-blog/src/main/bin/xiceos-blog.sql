@@ -41,7 +41,7 @@ create table `blog_comments` (
   primary key (`coid`),
   key `cid` (`cid`),
   key `created` (`created`)
-) engine=myisam auto_increment=1 default charset=utf8;
+) engine=innodb auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_contents 内容表
@@ -68,7 +68,7 @@ create table `blog_contents` (
   primary key (`cid`),
   unique key `slug` (`slug`),
   key `created` (`created`)
-) engine=myisam auto_increment=1 default charset=utf8;
+) engine=innodb auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_fields 扩展字段表
@@ -84,7 +84,7 @@ create table `blog_fields` (
   primary key (`cid`,`name`),
   key `int_value` (`int_value`),
   key `float_value` (`float_value`)
-) engine=myisam default charset=utf8;
+) engine=innodb default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_metas 项目表
@@ -101,7 +101,7 @@ create table `blog_metas` (
   `parent` int(10) unsigned default '0',
   primary key (`mid`),
   key `slug` (`slug`)
-) engine=myisam auto_increment=1 default charset=utf8;
+) engine=innodb auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_options 配置表
@@ -112,7 +112,7 @@ create table `blog_options` (
   `user` int(10) unsigned not null default '0' comment '配置所属用户、默认位0(全局配置)',
   `value` text comment '配置值',
   primary key (`name`,`user`)
-) engine=myisam default charset=utf8;
+) engine=innodb default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_relationships 关系表
@@ -122,7 +122,7 @@ create table `blog_relationships` (
   `cid` int(10) unsigned not null comment 'blog_contents表主键',
   `mid` int(10) unsigned not null comment 'blog_metas表主键',
   primary key (`cid`,`mid`)
-) engine=myisam default charset=utf8;
+) engine=innodb default charset=utf8;
 
 -- ----------------------------
 -- table structure for blog_users 用户表
@@ -144,7 +144,7 @@ create table `blog_users` (
   primary key (`uid`),
   unique key `username` (`username`),
   unique key `mail` (`mail`)
-) engine=myisam auto_increment=1 default charset=utf8;
+) engine=innodb auto_increment=1 default charset=utf8;
 
 -- ----------------------------
 -- Table structure for blog_operation_log
@@ -161,4 +161,4 @@ create table `blog_operation_log` (
   `createtime` datetime default null comment '创建时间',
   `result` text comment '日志结果',
   primary key (`lid`)
-) engine=myisam auto_increment=1 default charset=utf8;
+) engine=innodb auto_increment=1 default charset=utf8;

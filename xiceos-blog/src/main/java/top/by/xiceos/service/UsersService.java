@@ -13,7 +13,7 @@ import top.by.xiceos.vo.Users;
  */
 public interface UsersService {
 
-    ApiResponseData insert(Users users);
+    ApiResponseData insert(Users users) throws RuntimeException;
 
     ApiResponseData delete(Long id);
 

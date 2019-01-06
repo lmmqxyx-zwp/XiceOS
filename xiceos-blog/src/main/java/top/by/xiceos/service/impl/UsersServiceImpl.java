@@ -21,10 +21,14 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     private UsersDao usersDao;
 
-    @Transactional
+    //@Transactional
     @Override
-    public ApiResponseData insert(Users users) {
-        return ApiResponseData.ofSuccess(usersDao.insert(users));
+    public ApiResponseData insert(Users users) throws RuntimeException {
+        Object o = usersDao.insert(users);
+        System.out.println(1/0);
+        return ApiResponseData.ofSuccess(o);
+        //https://blog.csdn.net/shunhua19881987/article/details/75311107
+        //https://www.cnblogs.com/kerrycode/p/6999550.html
     }
 
     @Override

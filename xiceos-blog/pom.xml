@@ -49,6 +49,12 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
+        <!-- 添加事务支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
         <!-- JSTL for JSP  spring boot搭建web项目，跳转到jsp一定要添加下面的jar包，否则出现跳转的时候，变成下载的功能，保存该页面-->
         <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
         <!--
@@ -169,6 +175,7 @@
 
 
         <!-- 添加spring支持 -->
+        <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
@@ -222,8 +229,10 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.framework.version}</version>
         </dependency>
+        -->
 
         <!-- 事务 -->
+        <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
@@ -241,6 +250,7 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.framework.version}</version>
         </dependency>
+        -->
 
         <!-- 添加druid支持 -->
         <dependency>
